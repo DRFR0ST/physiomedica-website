@@ -15,7 +15,7 @@ function App() {
   return (
     <LitteraProvider>
       <ThemeProvider theme={theme}>
-        <Router>
+        <Router basename="/">
           <Switch>
             <Route path="/" exact component={Home} />
           </Switch>
