@@ -2,7 +2,6 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/styles'
 import { Spa as SpaIcon } from '@material-ui/icons'
-import uuid from 'uuid/v1'
 
 const styles = theme => ({
   root: {
