@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles, Typography } from '@material-ui/core'
 import { useLittera } from 'react-littera'
-import illustration from 'assets/undraw_doctors_hwty.svg'
+import illustration from 'images/undraw_doctors_hwty.svg'
 
 const styles = theme => ({
   root: {
