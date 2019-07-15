@@ -42,7 +42,7 @@ function App() {
           drawerOpen={drawerOpen}
           goTo={goTo}
         />
-        <Router basename={process.env.REACT_APP_MODE === "prod" ? "/physiomedica-website" : "/"}>
+        <Router basename={process.env.REACT_APP_BASE || "/"}>
           <Switch>
             <Route path="/" exact component={Home} />
           </Switch>
