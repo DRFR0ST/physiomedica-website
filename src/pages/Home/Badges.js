@@ -13,10 +13,9 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    //minHeight: 'calc(50vh - 64px - 4rem)',
     padding: '1rem 0 0 0',
     width: '100%',
-    background: '#f4f4f4',
+    background: '#fff',
     zIndex: 5,
     position: 'relative',
   },
@@ -26,18 +25,28 @@ const styles = theme => ({
     position: 'relative',
     marginBottom: '5rem',
   },
-  bottomSphere: {
-    width: '100%',
-    height: '10vh',
+  gradient: {
+    height: '20px',
     position: 'relative',
-    boxShadow: `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)`,
-    borderRadius: '0 0 100vw 100vw',
-    background: '#f4f4f4',
+    width: '100%',
+    background:
+      'radial-gradient(ellipse farthest-side at top center, rgba(0,0,0,0.08), transparent)',
+    '&:before': {
+      content: '""',
+      display: 'block',
+      position: 'absolute',
+      top: '0px',
+      right: '0',
+      left: '0',
+      height: '3px',
+      background:
+        'linear-gradient(left, transparent, rgba(0,0,0,0.02), rgba(0,0,0,0.02), transparent)',
+    },
   },
   badge: {
     textAlign: 'center',
     width: '300px',
-    margin: '4rem 1rem 0 1rem',
+    margin: '3rem 1rem 3rem 1rem',
   },
   icon: {
     width: '38px',
@@ -100,7 +109,7 @@ const Badges = ({ classes }) => {
           </div>
         ))}
       </div>
-      <div className={classes.bottomSphere} />
+      <div className={classes.gradient} />
     </div>
   )
 }

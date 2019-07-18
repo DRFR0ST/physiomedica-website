@@ -6,7 +6,7 @@ import illustration from 'images/undraw_doctors_hwty.svg'
 const styles = theme => ({
   root: {
     width: '100%',
-    height: '50vh',
+    minHeight: '50vh',
     background: theme.palette.background.dark,
     display: 'flex',
     justifyContent: 'space-between',
@@ -49,6 +49,7 @@ const styles = theme => ({
     },
     left: {
       flexBasis: '10%',
+      margin: '2rem 0',
     },
     right: {
       flexBasis: '90%',
