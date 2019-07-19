@@ -16,8 +16,8 @@ const InteriorView = ({ classes }) => {
 
   // see https://developers.google.com/maps/documentation/javascript/3.exp/reference#StreetViewPanoramaOptions
   const streetViewPanoramaOptions = {
-    position: { lat: 46.9171876, lng: 17.8951832 },
-    pov: { heading: 100, pitch: 0 },
+    position: { lat: 52.4082097, lng: 22.2330801 },
+    pov: { heading: 225, pitch: 0 },
     zoom: 1,
   }
 
