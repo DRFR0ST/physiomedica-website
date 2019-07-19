@@ -4,7 +4,6 @@ import Intro from './Intro'
 import About from './About'
 import Contact from './Contact'
 import Badges from './Badges'
-import InteriorView from './InteriorView'
 
 const styles = theme => ({
   root: {
@@ -19,7 +18,6 @@ const Home = ({ classes }) => {
       <Badges />
       <About />
       <Contact />
-      <InteriorView />
     </div>
   )
 }
