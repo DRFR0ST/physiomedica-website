@@ -4,8 +4,9 @@ import { ThemeProvider } from '@material-ui/styles'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import LitteraProvider from 'react-littera'
 import { Home } from 'pages'
-import Navbar from '../components/Navbar'
-import Sidebar from '../components/Sidebar'
+import Navbar from 'components/Navbar'
+import Sidebar from 'components/Sidebar'
+import Footer from 'components/Footer'
 
 const theme = createMuiTheme({
   palette: {
@@ -52,6 +53,7 @@ function App() {
           toggleDrawer={toggleDrawer}
           drawerOpen={drawerOpen}
         />
+        <Footer />
       </ThemeProvider>
     </LitteraProvider>
   )

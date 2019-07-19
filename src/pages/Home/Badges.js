@@ -12,18 +12,18 @@ const styles = theme => ({
     textAlign: 'center',
     display: 'flex',
     justifyContent: 'space-evenly',
+    flexWrap: 'wrap',
     alignItems: 'center',
-    padding: '1rem 0 0 0',
     width: '100%',
     background: '#fff',
     zIndex: 5,
     position: 'relative',
+    padding: '6vh 0',
   },
   container: {
     width: '100vw',
     maxWidth: '100%',
     position: 'relative',
-    marginBottom: '5rem',
   },
   gradient: {
     height: '20px',
@@ -46,7 +46,7 @@ const styles = theme => ({
   badge: {
     textAlign: 'center',
     width: '300px',
-    margin: '3rem 1rem 3rem 1rem',
+    padding: '1vh 0',
   },
   icon: {
     width: '38px',
@@ -63,6 +63,7 @@ const styles = theme => ({
   '@media (max-width: 768px)': {
     root: {
       flexDirection: 'column',
+      padding: '10vh 0 6vh 0',
     },
     badge: {
       margin: '0.5rem',

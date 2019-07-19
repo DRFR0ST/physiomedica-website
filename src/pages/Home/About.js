@@ -34,6 +34,7 @@ const styles = theme => ({
   '@media (max-width: 768px)': {
     root: {
       flexDirection: 'column',
+      margin: '20% 5%',
     },
     image: {
       marginRight: '0',

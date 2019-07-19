@@ -12,7 +12,7 @@ const styles = theme => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     position: 'relative',
-    padding: '2% 0',
+    padding: '2% 0 2% 0',
   },
 
   left: {
@@ -46,6 +46,7 @@ const styles = theme => ({
   '@media (max-width: 768px)': {
     root: {
       flexDirection: 'column',
+      padding: '2% 0 8%',
     },
     left: {
       flexBasis: '10%',
