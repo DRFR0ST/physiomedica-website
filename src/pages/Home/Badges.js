@@ -51,11 +51,13 @@ const styles = theme => ({
   icon: {
     width: '38px',
     height: '38px',
-    background: theme.palette.primary.dark,
-    color: theme.palette.primary.contrastText,
+    background: theme.palette.primary.contrastText,
+    opacity: '0.5',
+    color: theme.palette.primary.dark,
     borderRadius: '100px',
     padding: '10px',
     marginBottom: '1rem',
+    'box-shadow': '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
   },
   text: {
     opacity: 0.5,
