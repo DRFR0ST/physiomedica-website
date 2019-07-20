@@ -10,10 +10,8 @@ import {
 } from '@material-ui/core'
 import {
   Home as HomeIcon,
-  Phone as PhoneIcon,
   Face as FaceIcon,
   Help as HelpIcon,
-  Grade as GradeIcon,
   AttachMoney as AttachMoneyIcon,
 } from '@material-ui/icons'
 import { useLittera } from 'react-littera'

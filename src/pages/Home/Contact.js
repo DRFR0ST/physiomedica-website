@@ -1,6 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/styles'
-import { Paper, Input, TextField, Button } from '@material-ui/core'
+import { Paper, TextField, Button } from '@material-ui/core'
 import cx from 'classnames'
 import { Send as SendIcon } from '@material-ui/icons'
 

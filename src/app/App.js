@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import LitteraProvider from 'react-littera'
 import { Home, Reservation, ErrorPage } from 'pages'
 import Navbar from 'components/Navbar'
