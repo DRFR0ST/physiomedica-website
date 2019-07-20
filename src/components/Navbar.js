@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import useEventListener from '@use-it/event-listener'
 import { withStyles, Paper, Button, IconButton } from '@material-ui/core'
 import { useLittera } from 'react-littera'
+import { Link } from 'react-router-dom'
 import { Menu as MenuIcon } from '@material-ui/icons'
 
 const styles = theme => ({
@@ -55,24 +56,7 @@ const styles = theme => ({
   },
 })
 
-const translations = {
-  home: {
-    en_US: 'Home',
-    pl_PL: 'Strona główna',
-  },
-  about: {
-    en_US: 'About',
-    pl_PL: 'O nas',
-  },
-  contact: {
-    en_US: 'Contact',
-    pl_PL: 'Kontakt',
-  },
-  reservation: {
-    en_US: 'Reservation',
-    pl_PL: 'Rezerwacja',
-  },
-}
+const translations = preset => ({ ...preset.menu })
 
 const Navbar = ({ classes, toggleDrawer, goTo }) => {
   const [elevate, setElevate] = useState(false)
@@ -83,7 +67,6 @@ const Navbar = ({ classes, toggleDrawer, goTo }) => {
     else if (elevate && window.pageYOffset <= 5) setElevate(false)
   })
 
-
   return (
     <Paper elevation={elevate ? 2 : 0} className={classes.root}>
       <div className={classes.menu}>
@@ -93,17 +76,25 @@ const Navbar = ({ classes, toggleDrawer, goTo }) => {
       </div>
       <div className={classes.logo}>PHYSIOMEDICA</div>
       <div className={classes.buttons}>
-        <Button style={{ margin: '0 8px' }} onClick={() => goTo('')}>
-          {translated.home}
-        </Button>
-        <Button style={{ margin: '0 8px' }} onClick={() => goTo('about')}>
+        <Link to="/">
+          <Button
+            size="small"
+            style={{ margin: '0 4px' }}
+            onClick={() => goTo('')}>
+            {translated.home}
+          </Button>
+        </Link>
+        <Button
+          size="small"
+          style={{ margin: '0 4px' }}
+          onClick={() => goTo('about')}>
           {translated.about}
         </Button>
-        <Button style={{ margin: '0 8px' }} onClick={() => goTo('contact')}>
-          {translated.contact}
-        </Button>
-        <Button style={{ margin: '0 8px' }} variant="outlined">
-          {translated.reservation}
+        <Button
+          size="small"
+          style={{ margin: '0 4px' }}
+          onClick={() => goTo('pricing')}>
+          {translated.pricing}
         </Button>
       </div>
     </Paper>

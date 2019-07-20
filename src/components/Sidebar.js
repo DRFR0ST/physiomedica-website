@@ -14,6 +14,7 @@ import {
   Face as FaceIcon,
   Help as HelpIcon,
   Grade as GradeIcon,
+  AttachMoney as AttachMoneyIcon,
 } from '@material-ui/icons'
 import { useLittera } from 'react-littera'
 
@@ -23,28 +24,13 @@ const styles = theme => ({
   },
 })
 
-const translations = {
-  home: {
-    en_US: 'Home',
-    pl_PL: 'Strona główna',
-  },
-  about: {
-    en_US: 'About',
-    pl_PL: 'O nas',
-  },
-  contact: {
-    en_US: 'Contact',
-    pl_PL: 'Kontakt',
-  },
-  reservation: {
-    en_US: 'Reservation',
-    pl_PL: 'Rezerwacja',
-  },
+const translations = preset => ({
+  ...preset.menu,
   help: {
     en_US: 'Help',
     pl_PL: 'Pomoc',
   },
-}
+})
 
 const Sidebar = ({ toggleDrawer, drawerOpen, classes, goTo }) => {
   const [translated] = useLittera(translations)
@@ -67,17 +53,11 @@ const Sidebar = ({ toggleDrawer, drawerOpen, classes, goTo }) => {
           </ListItemIcon>
           <ListItemText primary={translated.about} />
         </ListItem>
-        <ListItem button onClick={() => goTo('contact')}>
+        <ListItem button onClick={() => goTo('pricing')}>
           <ListItemIcon>
-            <PhoneIcon />
+            <AttachMoneyIcon />
           </ListItemIcon>
-          <ListItemText primary={translated.contact} />
-        </ListItem>
-        <ListItem button onClick={() => goTo('reservation')}>
-          <ListItemIcon>
-            <GradeIcon />
-          </ListItemIcon>
-          <ListItemText primary={translated.reservation} />
+          <ListItemText primary={translated.pricing} />
         </ListItem>
       </List>
       <Divider />

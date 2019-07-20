@@ -6,9 +6,7 @@ import Contact from './Contact'
 import Badges from './Badges'
 
 const styles = theme => ({
-  root: {
-    marginTop: '64px',
-  },
+  root: {},
 })
 
 const Home = ({ classes }) => {

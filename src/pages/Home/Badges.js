@@ -14,11 +14,10 @@ const styles = theme => ({
     justifyContent: 'space-evenly',
     flexWrap: 'wrap',
     alignItems: 'center',
-    width: '100%',
     background: '#fff',
     zIndex: 5,
     position: 'relative',
-    padding: '6vh 0',
+    padding: '5vh 5%',
   },
   container: {
     width: '100vw',

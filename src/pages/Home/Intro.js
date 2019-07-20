@@ -2,6 +2,7 @@ import React from 'react'
 import { withStyles, Typography } from '@material-ui/core'
 import { useLittera } from 'react-littera'
 import illustration from 'images/undraw_doctors_hwty.svg'
+import QuickActions from './QuickActions'
 
 const styles = theme => ({
   root: {
@@ -46,7 +47,7 @@ const styles = theme => ({
   '@media (max-width: 768px)': {
     root: {
       flexDirection: 'column',
-      padding: '2% 0 8%',
+      padding: '2% 0 60px',
     },
     left: {
       flexBasis: '10%',
@@ -73,24 +74,27 @@ const Intro = ({ classes }) => {
   const [translated] = useLittera(translations)
 
   return (
-    <div className={classes.root}>
-      <div className={classes.left}>
-        <div>
-          <Typography paragraph>mgr Justyna Kuc</Typography>
-          <Typography color="primary" variant="h2">
-            {translated.physiotherapy}
-          </Typography>
-          <Typography
-            color="primary"
-            style={{ textAlign: 'right' }}
-            variant="h2">
-            {translated.massage}
-          </Typography>
+    <div>
+      <div className={classes.root}>
+        <div className={classes.left}>
+          <div>
+            <Typography paragraph>mgr Justyna Kuc</Typography>
+            <Typography color="primary" variant="h2">
+              {translated.physiotherapy}
+            </Typography>
+            <Typography
+              color="primary"
+              style={{ textAlign: 'right' }}
+              variant="h2">
+              {translated.massage}
+            </Typography>
+          </div>
+        </div>
+        <div className={classes.right}>
+          <img alt="illustration" src={illustration} />
         </div>
       </div>
-      <div className={classes.right}>
-        <img alt="illustration" src={illustration} />
-      </div>
+      <QuickActions />
     </div>
   )
 }

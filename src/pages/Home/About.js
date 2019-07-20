@@ -52,7 +52,7 @@ const About = ({ classes }) => {
       </div>
       <div className={classes.container}>
         <Typography variant="h3" className={classes.title}>
-          O NAS
+          O MNIE
         </Typography>
         <Typography paragraph className={classes.paragraph}>
           Consectetur ullamco deserunt velit do officia laboris ipsum enim.
