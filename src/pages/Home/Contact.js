@@ -15,7 +15,7 @@ const styles = theme => ({
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
     backgroundSize: 'cover',
-    background: 'url(https://source.unsplash.com/k-hHz56AImQ/)',
+    background: 'url(https://source.unsplash.com/GnvurwJsKaY/1600x780)',
 
     position: 'relative',
     display: 'flex',
@@ -28,7 +28,7 @@ const styles = theme => ({
     width: '40%',
     margin: '3rem',
     padding: '2rem',
-    background: 'rgba(255, 255, 255, 0.8)',
+    background: 'rgba(255, 255, 255, 0.9)',
     borderRadius: '20px',
     boxShadow: 'none',
   },
