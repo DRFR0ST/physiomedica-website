@@ -96,6 +96,7 @@ const theme = createMuiTheme({
 
 function App() {
   const [drawerOpen, toggleDrawer] = useState(false)
+  const [language, setLanguage] = useState('pl_PL')
 
   const goTo = content => {
     window.location.href = `#`
@@ -105,7 +106,10 @@ function App() {
 
   return (
     <Router basename={process.env.REACT_APP_BASENAME || '/'}>
-      <LitteraProvider language="pl_PL" preset={TRANS_PRESET}>
+      <LitteraProvider
+        language={language}
+        preset={TRANS_PRESET}
+        setLanguage={setLanguage}>
         <ThemeProvider theme={theme}>
           <Navbar
             toggleDrawer={toggleDrawer}

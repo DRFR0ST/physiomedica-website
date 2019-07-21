@@ -1,7 +1,15 @@
-import React from 'react'
-import { withStyles, Typography } from '@material-ui/core'
-
+import React, { useState } from 'react'
+import {
+  withStyles,
+  Typography,
+  Button,
+  Menu,
+  MenuItem,
+} from '@material-ui/core'
+import { useLittera } from 'react-littera'
 import logo from 'images/logo_transparent.png'
+import usFlag from 'images/flags/US.svg'
+import plFlag from 'images/flags/PL.svg'
 
 const styles = theme => ({
   root: {
@@ -40,6 +48,16 @@ const styles = theme => ({
   logo: {
     maxHeight: '200px',
   },
+  flag: {
+    maxHeight: '17px',
+    marginRight: '10px',
+    borderRadius: '5px',
+  },
+  flagButton: {
+    maxHeight: '13.5px',
+    marginRight: '10px',
+    borderRadius: '5px',
+  },
   '@media (max-width: 768px)': {
     infoContainer: {
       flexDirection: 'column-reverse',
@@ -53,20 +71,45 @@ const styles = theme => ({
   },
 })
 
+const translations = {
+  pl_PL: {
+    en_US: 'Polish',
+    pl_PL: 'Polski',
+  },
+  en_US: {
+    en_US: 'English',
+    pl_PL: 'Angielski',
+  },
+}
+
 const Footer = ({ classes }) => {
+  const [translated, language, setLanguage] = useLittera(translations)
+  const [anchorEl, setAnchorEl] = useState(null)
+
+  function handleClick(event) {
+    setAnchorEl(event.currentTarget)
+  }
+
+  function handleSelect(value) {
+    setLanguage(value)
+    handleClose()
+  }
+
+  function handleClose() {
+    setAnchorEl(null)
+  }
+
+  const enFlagEl =
+    language === 'pl_PL' ? (
+      <img alt="PL Flag" src={plFlag} className={classes.flagButton} />
+    ) : (
+      <img alt="US Flag" src={usFlag} className={classes.flagButton} />
+    )
+
   return (
     <div className={classes.root}>
       <div className={classes.infoContainer}>
         <img alt="logo" src={logo} className={classes.logo} />
-        <div>
-          <ul>
-            <li>Facebook</li>
-            <li>Instagram</li>
-            <li>Twitter</li>
-            <li>ZnanyLekarz</li>
-            <li>YouTube</li>
-          </ul>
-        </div>
         <div style={{ marginRight: '5vw' }}>
           <ul>
             <li>Polityka Prywatności</li>
@@ -74,6 +117,32 @@ const Footer = ({ classes }) => {
             <li>Cookies</li>
             <li>Pomoc</li>
           </ul>
+        </div>
+        <div style={{ alignSelf: 'flex-start' }}>
+          <div style={{ alignSelf: 'flex-start' }}>
+            <Button
+              aria-controls="simple-menu"
+              aria-haspopup="true"
+              onClick={handleClick}>
+              {enFlagEl}
+              {translated[language]}
+            </Button>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}>
+              <MenuItem onClick={() => handleSelect('pl_PL')}>
+                <img alt="PL Flag" src={plFlag} className={classes.flag} />
+                {translated['pl_PL']}
+              </MenuItem>
+              <MenuItem onClick={() => handleSelect('en_US')}>
+                <img alt="US Flag" src={usFlag} className={classes.flag} />
+                {translated['en_US']}
+              </MenuItem>
+            </Menu>
+          </div>
         </div>
       </div>
       <div className={classes.copyright}>
