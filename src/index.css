@@ -8,6 +8,10 @@ body {
   background: #fff;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   transition: color 255ms ease;
   color: #0cccca;

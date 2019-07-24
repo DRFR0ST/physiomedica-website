@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/styles'
-import aboutImage from 'images/undraw_in_thought_gjsf.svg'
+import contactImage from 'images/undraw_Calculator_0evy.svg'
 
 const styles = theme => ({
   root: {
@@ -10,6 +10,7 @@ const styles = theme => ({
     margin: '10% 5%',
     justifyContent: 'space-evenly',
     alignItems: 'center',
+    flexDirection: 'row-reverse',
   },
   container: {
     textAlign: 'left',
@@ -20,7 +21,6 @@ const styles = theme => ({
     marginBottom: '0.7rem',
     color: theme.palette.primary.main,
     fontWeight: 'bold',
-
     textTransform: 'uppercase',
   },
   paragraph: {
@@ -28,7 +28,7 @@ const styles = theme => ({
   },
   image: {
     width: '40vw',
-    marginRight: '5vw',
+    marginLeft: '5vw',
     maxWidth: '820px',
 
     maxHeight: '520px',
@@ -39,22 +39,22 @@ const styles = theme => ({
       margin: '20% 5%',
     },
     image: {
-      marginRight: '0',
+      marginLeft: '0',
       width: '80vw',
       marginBottom: '3rem',
     },
   },
 })
 
-const About = ({ classes }) => {
+const Pricing = ({ classes }) => {
   return (
-    <div id="about" className={classes.root}>
+    <div id="pricing" className={classes.root}>
       <div>
-        <img alt="about" src={aboutImage} className={classes.image} />
+        <img alt="pricing" src={contactImage} className={classes.image} />
       </div>
       <div className={classes.container}>
         <Typography variant="h3" className={classes.title}>
-          O MNIE
+          Cennik
         </Typography>
         <Typography paragraph className={classes.paragraph}>
           Consectetur ullamco deserunt velit do officia laboris ipsum enim.
@@ -75,4 +75,4 @@ const About = ({ classes }) => {
   )
 }
 
-export default withStyles(styles)(About)
+export default withStyles(styles)(Pricing)

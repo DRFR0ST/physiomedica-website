@@ -5,8 +5,14 @@ import {
   Phone as PhoneIcon,
   Grade as GradeIcon,
   NewReleases as NewReleasesIcon,
+  School as SchoolIcon,
 } from '@material-ui/icons'
 import { Typography, ButtonBase } from '@material-ui/core'
+
+import { useLittera } from 'react-littera'
+
+import { Link } from 'react-router-dom'
+import SuperLink from '../../components/SuperLink'
 
 const states = theme => ({
   container: {
@@ -15,7 +21,8 @@ const states = theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: '-45px',
+    zIndex: 10,
+    marginBottom: '-45px',
     position: 'relative',
   },
   root: {
@@ -37,11 +44,13 @@ const states = theme => ({
     borderRight: '1px solid rgba(21, 21, 21, .15)',
     textAlign: 'center',
     cursor: 'pointer',
+    color: theme.palette.background.contrastText,
     '&:hover': {
-      background: '#f4f4f4',
+      background: theme.palette.background.dark,
     },
     '&:focus': {
-      color: theme.palette.primary.dark,
+      color: theme.palette.primary.contrastText,
+      background: theme.palette.primary.dark,
     },
     '&:first-child': {
       borderLeft: 'none',
@@ -86,32 +95,63 @@ const states = theme => ({
   },
 })
 
-const ACTIONS = [
-  {
-    text: 'Rezerwacja',
-    icon: GradeIcon,
+const translations = {
+  reservation: {
+    en_US: 'Reservation',
+    pl_PL: 'Rezerwacja',
   },
-  {
-    text: 'Kontakt',
-    icon: PhoneIcon,
+  contact: {
+    en_US: 'Contact',
+    pl_PL: 'Kontakt',
   },
-  {
-    text: 'Nowości',
-    icon: NewReleasesIcon,
+  news: {
+    en_US: 'News',
+    pl_PL: 'Nowości',
   },
-]
+  diplomas: {
+    en_US: 'Diplomas',
+    pl_PL: 'Dyplomy',
+  },
+}
 
 const QuickActions = ({ classes }) => {
+  const [translated] = useLittera(translations)
+
+  const ACTIONS = [
+    {
+      text: translated.reservation,
+      icon: GradeIcon,
+      url: '/reservation',
+    },
+    {
+      text: translated.contact,
+      icon: PhoneIcon,
+      url: '/contact',
+    },
+    {
+      text: translated.news,
+      icon: NewReleasesIcon,
+      url: 'https://facebook.com/physiomedicaJ.K',
+    },
+    {
+      text: translated.diplomas,
+      icon: SchoolIcon,
+      url: '/diplomas',
+    },
+  ]
+
   return (
     <div className={classes.container}>
       <div className={classes.root}>
-        {ACTIONS.map(({ text, icon: Icon }) => (
-          <ButtonBase classes={{ root: classes.action }}>
-            <div>
-              <Icon />
-              <Typography paragraph>{text}</Typography>
-            </div>
-          </ButtonBase>
+        {ACTIONS.map(({ text, icon: Icon, url }) => (
+          <SuperLink to={url} style={{ userSelect: 'none' }}>
+            <ButtonBase classes={{ root: classes.action }}>
+              <div>
+                <Icon />
+                <Typography paragraph>{text}</Typography>
+              </div>
+            </ButtonBase>
+          </SuperLink>
         ))}
       </div>
     </div>

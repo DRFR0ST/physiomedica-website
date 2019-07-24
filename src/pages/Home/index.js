@@ -4,6 +4,8 @@ import Intro from './Intro'
 import About from './About'
 import Contact from './Contact'
 import Badges from './Badges'
+import Pricing from './Pricing'
+import Discounts from './Discounts'
 
 const styles = theme => ({
   root: {},
@@ -15,6 +17,8 @@ const Home = ({ classes }) => {
       <Intro />
       <Badges />
       <About />
+      <Pricing />
+      <Discounts />
       <Contact />
     </div>
   )
