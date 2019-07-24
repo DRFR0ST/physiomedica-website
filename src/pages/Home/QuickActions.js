@@ -11,7 +11,6 @@ import { Typography, ButtonBase } from '@material-ui/core'
 
 import { useLittera } from 'react-littera'
 
-import { Link } from 'react-router-dom'
 import SuperLink from '../../components/SuperLink'
 
 const states = theme => ({
