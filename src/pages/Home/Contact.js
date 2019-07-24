@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/styles'
 import { Paper, TextField, Button } from '@material-ui/core'
 import cx from 'classnames'
 import { Send as SendIcon } from '@material-ui/icons'
+import GoogleMapsLoader from 'google-maps'
 
 const styles = theme => ({
   root: {
