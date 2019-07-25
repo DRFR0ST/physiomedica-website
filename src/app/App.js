@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route, withRouter, Switch } from 'react-router-dom'
 import LitteraProvider from 'react-littera'
 import { Home, Reservation, ErrorPage } from 'pages'
 import Navbar from 'components/Navbar'
 import Sidebar from 'components/Sidebar'
 import Footer from 'components/Footer'
-import { AnimatedSwitch } from 'react-router-transition'
+import ModalPage from 'components/ModalPage'
+import BottomNav from '../components/BottomNav'
 
 const TRANS_PRESET = {
   menu: {
@@ -45,7 +46,7 @@ const theme = createMuiTheme({
     background: {
       light: '#fff',
       dark: '#f4f4f4',
-      contrastText: '#212121'
+      contrastText: '#212121',
     },
   },
   status: {
@@ -95,8 +96,9 @@ const theme = createMuiTheme({
   },
 })
 
-function App() {
+function App({ history, location }) {
   const [drawerOpen, toggleDrawer] = useState(false)
+  const [modalPageOpen, setModalPageOpen] = useState(false)
   const [language, setLanguage] = useState('pl_PL')
 
   const goTo = content => {
@@ -105,37 +107,56 @@ function App() {
     window.scrollTo(0, window.pageYOffset - 64)
   }
 
+  useEffect(() => {
+    if (['/reservation'].indexOf(location.pathname) > -1 && !modalPageOpen)
+      setModalPageOpen(true)
+    else setModalPageOpen(false)
+  }, [location]) //eslint-disable-line
+
   return (
-    <Router basename={process.env.REACT_APP_BASENAME || '/'}>
-      <LitteraProvider
-        language={language}
-        preset={TRANS_PRESET}
-        setLanguage={setLanguage}>
-        <ThemeProvider theme={theme}>
-          <Navbar
-            toggleDrawer={toggleDrawer}
-            drawerOpen={drawerOpen}
-            goTo={goTo}
-          />
-          <AnimatedSwitch
-            atEnter={{ opacity: 0 }}
-            atLeave={{ opacity: 0 }}
-            atActive={{ opacity: 1 }}
-            className="switch-wrapper">
-            <Route path="/" exact component={Home} />
+    <LitteraProvider
+      language={language}
+      preset={TRANS_PRESET}
+      setLanguage={setLanguage}>
+      <ThemeProvider theme={theme}>
+        <Navbar
+          toggleDrawer={toggleDrawer}
+          drawerOpen={drawerOpen}
+          goTo={goTo}
+        />
+        <Switch>
+          <Route render={() => <Home />} />
+        </Switch>
+        <ModalPage
+          open={modalPageOpen}
+          handleClose={() => {
+            setModalPageOpen(false)
+            history.push('/')
+          }}>
+          <Switch>
             <Route path="/reservation" exact component={Reservation} />
-            <Route component={ErrorPage} />
-          </AnimatedSwitch>
-          <Sidebar
-            goTo={goTo}
-            toggleDrawer={toggleDrawer}
-            drawerOpen={drawerOpen}
-          />
-          <Footer />
-        </ThemeProvider>
-      </LitteraProvider>
-    </Router>
+          </Switch>
+        </ModalPage>
+        <Sidebar
+          goTo={goTo}
+          toggleDrawer={toggleDrawer}
+          drawerOpen={drawerOpen}
+        />
+        <BottomNav
+          handleChange={e =>
+            !isURLExternal(e) ? history.push(e) : (window.location.href = e)
+          }
+        />
+        <Footer />
+      </ThemeProvider>
+    </LitteraProvider>
   )
 }
 
-export default App
+const isURLExternal = url => {
+  return Boolean(
+    new RegExp(/https?:\/\/((?:[\w\d-]+\.)+[\w\d]{2,})/i).exec(url)
+  )
+}
+
+export default withRouter(App)

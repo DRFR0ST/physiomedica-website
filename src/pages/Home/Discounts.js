@@ -43,6 +43,7 @@ const styles = theme => ({
     position: 'relative',
   },
   card: {
+    maxWidth: '85%',
     width: '100%',
     padding: '2em 3em',
     borderRadius: '6px',

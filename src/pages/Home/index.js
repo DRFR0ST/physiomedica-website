@@ -8,7 +8,9 @@ import Pricing from './Pricing'
 import Discounts from './Discounts'
 
 const styles = theme => ({
-  root: {},
+  root: {
+    paddingTop: 64,
+  },
 })
 
 const Home = ({ classes }) => {

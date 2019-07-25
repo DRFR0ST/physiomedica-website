@@ -70,6 +70,7 @@ const states = theme => ({
       overflowX: 'scroll',
       whiteSpace: 'nowrap',
       justifyContent: 'initial',
+      display: 'none',
     },
     root: {
       maxWidth: '100%',
