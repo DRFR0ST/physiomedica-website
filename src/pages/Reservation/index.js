@@ -42,6 +42,11 @@ const styles = theme => ({
   noLabel: {
     marginTop: theme.spacing(3),
   },
+  '@media (max-width: 768px)': {
+    contact: {
+      margin: '2rem 0',
+    },
+  },
 })
 
 const ITEM_HEIGHT = 48
@@ -97,66 +102,88 @@ const Reservation = ({ classes }) => {
         Złóż rezerwacje na wygodny, indywidualny termin.
       </Typography>
       <div className={classes.contact}>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <form
+          action={e => {
+            e.preventDefault()
+            console.log(e)
+          }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <TextField
+              variant="filled"
+              value={state.name}
+              style={{ width: '48%', margin: '0 0 0 10px 0' }}
+              label="Imię i Nazwisko"
+              onChange={e =>
+                dispatch({ type: 'name', payload: e.target.value })
+              }
+            />
+            <TextField
+              variant="filled"
+              value={state.email}
+              style={{ margin: '0 10px 0 0 0', width: '48%' }}
+              label="Adres E-Mail"
+              type="email"
+              onChange={e =>
+                dispatch({ type: 'email', payload: e.target.value })
+              }
+            />
+          </div>
+          <br />
+          <FormControl
+            className={classes.formControl}
+            style={{ width: '100%' }}>
+            <Select
+              multiple
+              value={items}
+              onChange={handleChange}
+              label="Wybierz usługi"
+              input={
+                <TextField
+                  fullWidth
+                  variant="filled"
+                  id="select-multiple-chip"
+                />
+              }
+              renderValue={selected => (
+                <div className={classes.chips}>
+                  {selected.map(value => (
+                    <Chip key={value} label={value} className={classes.chip} />
+                  ))}
+                </div>
+              )}
+              MenuProps={MenuProps}>
+              {names.map(name => (
+                <MenuItem
+                  key={name}
+                  value={name}
+                  style={getStyles(name, items, theme)}>
+                  {name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <br />
+          <br />
           <TextField
             variant="filled"
-            value={state.name}
-            style={{ width: '48%', margin: '0 0 0 10px 0' }}
-            label="Imię i Nazwisko"
-            onChange={e => dispatch({ type: 'name', payload: e.target.value })}
-          />
-          <TextField
-            variant="filled"
-            value={state.email}
-            style={{ margin: '0 10px 0 0 0', width: '48%' }}
-            label="Adres E-Mail"
-            type="email"
-            onChange={e => dispatch({ type: 'email', payload: e.target.value })}
-          />
-        </div>
-        <br />
-        <FormControl className={classes.formControl} style={{ width: '100%' }}>
-          <Select
-            multiple
-            value={items}
-            onChange={handleChange}
-            label="Wybierz usługi"
-            input={
-              <TextField fullWidth variant="filled" id="select-multiple-chip" />
+            fullWidth
+            multiline
+            label="Dodatkowe informacje"
+            value={state.message}
+            onChange={e =>
+              dispatch({ type: 'message', payload: e.target.value })
             }
-            renderValue={selected => (
-              <div className={classes.chips}>
-                {selected.map(value => (
-                  <Chip key={value} label={value} className={classes.chip} />
-                ))}
-              </div>
-            )}
-            MenuProps={MenuProps}>
-            {names.map(name => (
-              <MenuItem
-                key={name}
-                value={name}
-                style={getStyles(name, items, theme)}>
-                {name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <br />
-        <br />
-        <TextField
-          variant="filled"
-          fullWidth
-          multiline
-          label="Dodatkowe informacje"
-          value={state.message}
-          onChange={e => dispatch({ type: 'message', payload: e.target.value })}
-        />
-        <br />
-        <br />
-        <Button variant="contained" color="primary" type="submit" align="right">
-          Złóż rezerwacje
-        </Button>
+          />
+          <br />
+          <br />
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            align="right">
+            Złóż rezerwacje
+          </Button>
+        </form>
       </div>
     </div>
   )
