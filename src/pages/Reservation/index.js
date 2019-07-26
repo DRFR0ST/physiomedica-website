@@ -3,10 +3,8 @@ import {
   withStyles,
   Typography,
   FormControl,
-  
   Select,
   MenuItem,
-  
   Chip,
   TextField,
   useTheme,
@@ -35,10 +33,10 @@ const styles = theme => ({
   chips: {
     display: 'flex',
     flexWrap: 'wrap',
-    background: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
   },
   chip: {
+    background: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
     margin: 2,
   },
   noLabel: {
