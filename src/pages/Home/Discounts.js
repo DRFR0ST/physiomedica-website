@@ -2,13 +2,13 @@ import React from 'react'
 import { Typography, IconButton } from '@material-ui/core'
 import { withStyles } from '@material-ui/styles'
 import discountsImage from 'images/undraw_discount_d4bd.svg'
-import { Star as StarIcon } from '@material-ui/icons'
+import { Star as StarIcon, Face as FaceIcon, Favorite as FavoriteIcon } from '@material-ui/icons'
 
 const styles = theme => ({
   root: {
     display: 'flex',
     width: '90%',
-    margin: '10% 5%',
+    margin: '5%',
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
@@ -45,7 +45,7 @@ const styles = theme => ({
   card: {
     maxWidth: '85%',
     width: '100%',
-    padding: '2em 3em',
+    padding: '1.5em 2.5em 1.5em 1rem',
     borderRadius: '6px',
     background: theme.palette.background.light,
     boxShadow: theme.shadows[2],
@@ -65,7 +65,7 @@ const styles = theme => ({
       margin: 0,
     },
   },
-  starButton: { margin: '0 1rem 0 0' },
+  starButton: { marginRight: '1rem' },
   text: {},
   '@media (max-width: 768px)': {
     root: {
@@ -85,15 +85,18 @@ const DISCOUNT_LIST = [
     title: 'Example',
     content:
       'In anim laborum aliqua Lorem nostrud Lorem laborum magna dolor ipsum cupidatat sint.',
+    icon: StarIcon,
   },
   {
     title: 'Example',
     content: 'Exercitation nulla qui eu mollit cupidatat velit.',
+  icon: FavoriteIcon,
   },
   {
     title: 'Example',
     content:
       'Enim officia veniam consectetur aute id commodo magna quis nulla.',
+    icon: FaceIcon,
   },
 ]
 
@@ -108,16 +111,16 @@ const Discounts = ({ classes }) => {
           Promocje
         </Typography>
         <div className={classes.content}>
-          {DISCOUNT_LIST.map(e => (
+          {DISCOUNT_LIST.map(({icon: Icon, ...e}) => (
             <div className={classes.card}>
               <IconButton
                 size="large"
                 color="primary"
                 className={classes.starButton}>
-                <StarIcon />
+                <Icon />
               </IconButton>
               <div className={classes.text}>
-                <Typography variant="h4">{e.title}</Typography>
+                <Typography variant="h5">{e.title}</Typography>
                 <Typography paragraph style={{ opacity: 0.4 }}>
                   {e.content}
                 </Typography>

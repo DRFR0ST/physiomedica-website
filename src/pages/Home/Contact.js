@@ -57,6 +57,9 @@ const styles = theme => ({
       width: '100%',
       margin: 0,
     },
+    contactForm: {
+      width: '100%',
+    },
     illustration: {
       width: '100%',
       maxWidth: '100%',

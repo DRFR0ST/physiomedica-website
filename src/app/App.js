@@ -9,6 +9,9 @@ import Sidebar from 'components/Sidebar'
 import Footer from 'components/Footer'
 import ModalPage from 'components/ModalPage'
 import BottomNav from '../components/BottomNav'
+import SimpleModal from '../components/SimpleModal'
+import Contact from '../pages/Contact'
+import Diplomas from '../pages/Diplomas';
 
 const TRANS_PRESET = {
   menu: {
@@ -56,53 +59,12 @@ const theme = createMuiTheme({
   status: {
     danger: '#BD0000',
   },
-  shadowXs: {
-    '.z-depth-0': {
-      WebkitBoxShadow: 'none !important',
-      boxShadow: 'none !important',
-    },
-    '.z-depth-1': {
-      WebkitBoxShadow:
-        '0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)',
-      boxShadow:
-        '0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)',
-    },
-    '.z-depth-1-half': {
-      WebkitBoxShadow:
-        '0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2)',
-      boxShadow:
-        '0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2)',
-    },
-    '.z-depth-2': {
-      WebkitBoxShadow:
-        '0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3)',
-      boxShadow:
-        '0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3)',
-    },
-    '.z-depth-3': {
-      WebkitBoxShadow:
-        '0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2)',
-      boxShadow:
-        '0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2)',
-    },
-    '.z-depth-4': {
-      WebkitBoxShadow:
-        '0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2)',
-      boxShadow:
-        '0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2)',
-    },
-    '.z-depth-5': {
-      WebkitBoxShadow:
-        '0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2)',
-      boxShadow:
-        '0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2)',
-    },
-  },
 })
 
 function App({ history, location }) {
   const [drawerOpen, toggleDrawer] = useState(false)
   const [modalPageOpen, setModalPageOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
   const [language, setLanguage] = useState('pl_PL')
 
   const goTo = content => {
@@ -119,6 +81,10 @@ function App({ history, location }) {
     if (['/reservation'].indexOf(location.pathname) > -1 && !modalPageOpen)
       setModalPageOpen(true)
     else setModalPageOpen(false)
+
+    if (['/contact', '/diplomas'].indexOf(location.pathname) > -1 && !modalOpen)
+      setModalOpen(true)
+    else setModalOpen(false)
   }, [location]) //eslint-disable-line
 
   return (
@@ -145,6 +111,17 @@ function App({ history, location }) {
             <Route path="/reservation" exact component={Reservation} />
           </Switch>
         </ModalPage>
+        <SimpleModal
+          open={modalOpen}
+          handleClose={() => {
+            setModalOpen(false)
+            history.push('/')
+          }}>
+          <Switch>
+            <Route path="/contact" exact component={Contact} />
+            <Route path="/diplomas" exact component={Diplomas} />
+          </Switch>
+        </SimpleModal>
         <Sidebar
           goTo={goTo}
           toggleDrawer={toggleDrawer}

@@ -6,6 +6,7 @@ import Contact from './Contact'
 import Badges from './Badges'
 import Pricing from './Pricing'
 import Discounts from './Discounts'
+import FunQuote from './FunQuote'
 
 const styles = theme => ({
   root: {
@@ -20,6 +21,7 @@ const Home = ({ classes }) => {
       <Badges />
       <About />
       <Pricing />
+      <FunQuote />
       <Discounts />
       <Contact />
     </div>

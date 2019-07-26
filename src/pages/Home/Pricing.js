@@ -7,9 +7,11 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  Button,
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/styles'
 import contactImage from 'images/undraw_Calculator_0evy.svg'
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
   root: {
@@ -108,6 +110,11 @@ const Pricing = ({ classes }) => {
             </TableBody>
           </Table>
         </Paper>
+        <Link style={{ float: 'right', marginTop: '1rem' }} to="/reservation">
+          <Button variant="contained" color="primary" align="right">
+            Rezerwacja
+          </Button>
+        </Link>
       </div>
     </div>
   )
