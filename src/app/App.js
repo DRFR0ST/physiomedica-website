@@ -32,6 +32,10 @@ const TRANS_PRESET = {
       en_US: 'Reservation',
       pl_PL: 'Rezerwacja',
     },
+    discounts: {
+      en_US: 'Discounts',
+      pl_PL: 'Promocje',
+    },
   },
 }
 
@@ -102,9 +106,13 @@ function App({ history, location }) {
   const [language, setLanguage] = useState('pl_PL')
 
   const goTo = content => {
-    window.location.href = `#`
-    window.location.href = `#${content}`
-    window.scrollTo(0, window.pageYOffset - 64)
+    //window.location.href = `#`
+    //window.location.href = `#${content}`
+    if (content)
+      document.getElementById(content).scrollIntoView({ block: 'center' })
+    else window.scrollTo(0, 0)
+    //window.scrollTo(0, window.pageYOffset - 64)
+    //history.push();
   }
 
   useEffect(() => {

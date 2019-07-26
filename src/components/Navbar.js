@@ -43,10 +43,11 @@ const styles = theme => ({
     logo: {
       letterSpacing: '5px',
       fontSize: '1.3rem',
-      flexBasis: '85%',
+      flexBasis: '100%',
     },
     root: {
       justifyContent: 'space-between',
+      textAlign: 'center',
     },
     menu: {
       display: 'block',
@@ -95,6 +96,12 @@ const Navbar = ({ classes, toggleDrawer, goTo }) => {
           style={{ margin: '0 4px' }}
           onClick={() => goTo('pricing')}>
           {translated.pricing}
+        </Button>
+        <Button
+          size="small"
+          style={{ margin: '0 4px' }}
+          onClick={() => goTo('discounts')}>
+          {translated.discounts}
         </Button>
       </div>
     </Paper>

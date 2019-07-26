@@ -10,11 +10,15 @@ import {
   useTheme,
   Button,
 } from '@material-ui/core'
+import Grid from '@material-ui/core/Grid'
 
 const styles = theme => ({
+  grid: {
+    width: '60%',
+  },
   root: {
     height: '300vh',
-    padding: '5% 10%',
+    padding: '5% 20%',
   },
   title: {
     textTransform: 'uppercase',
@@ -23,9 +27,9 @@ const styles = theme => ({
     color: 'rgba(21, 21, 21, 0.4)',
   },
   contact: {
-    margin: '2rem 10%',
+    margin: '2rem 0',
     padding: '20px',
-    border: '.5px solid rgba(21, 21, 21, 0.25)',
+    border: '.5px solid rgba(21, 21, 21, 0.1)',
     position: 'relative',
     borderRadius: '4px',
   },
@@ -43,6 +47,9 @@ const styles = theme => ({
     marginTop: theme.spacing(3),
   },
   '@media (max-width: 768px)': {
+    root: {
+      padding: '5%',
+    },
     contact: {
       margin: '2rem 0',
     },
@@ -88,6 +95,11 @@ const Reservation = ({ classes }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const [items, setItems] = React.useState([])
   const theme = useTheme()
+  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+
+  function handleDateChange(date) {
+    setSelectedDate(date);
+  }
 
   function handleChange(event) {
     setItems(event.target.value)
@@ -109,7 +121,7 @@ const Reservation = ({ classes }) => {
           }}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <TextField
-              variant="filled"
+              variant="outlined"
               value={state.name}
               style={{ width: '48%', margin: '0 0 0 10px 0' }}
               label="Imię i Nazwisko"
@@ -118,10 +130,12 @@ const Reservation = ({ classes }) => {
               }
             />
             <TextField
-              variant="filled"
+              variant="outlined"
               value={state.email}
               style={{ margin: '0 10px 0 0 0', width: '48%' }}
               label="Adres E-Mail"
+              error={!validateEmail(state.email) && state.email.length > 0}
+              success={validateEmail(state.email)}
               type="email"
               onChange={e =>
                 dispatch({ type: 'email', payload: e.target.value })
@@ -140,7 +154,7 @@ const Reservation = ({ classes }) => {
               input={
                 <TextField
                   fullWidth
-                  variant="filled"
+                  variant="outlined"
                   id="select-multiple-chip"
                 />
               }
@@ -162,10 +176,11 @@ const Reservation = ({ classes }) => {
               ))}
             </Select>
           </FormControl>
+          
           <br />
           <br />
           <TextField
-            variant="filled"
+            variant="outlined"
             fullWidth
             multiline
             label="Dodatkowe informacje"
@@ -187,6 +202,11 @@ const Reservation = ({ classes }) => {
       </div>
     </div>
   )
+}
+
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  return re.test(String(email).toLowerCase())
 }
 
 export default withStyles(styles)(Reservation)

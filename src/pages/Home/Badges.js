@@ -80,18 +80,18 @@ const styles = theme => ({
 const Badges = ({ classes }) => {
   const items = [
     {
-      title: 'Lorem ipsum',
+      title: 'Profesjonalizm',
       icon: SpaIcon,
       content:
         'Ipsum ex ipsum officia reprehenderit sunt exercitation reprehenderit mollit ad.',
     },
     {
-      title: 'Set amet',
+      title: 'Skuteczność',
       icon: FlashOnIcon,
       content: 'Eiusmod nostrud eu aliquip veniam officia ad in non qui elit.',
     },
     {
-      title: 'Dolor magna ex',
+      title: 'Indywidualne podjeście',
       icon: FavoriteIcon,
       content:
         'Irure commodo consectetur mollit ipsum consequat ad magna amet nulla ex consectetur ipsum sit.',
@@ -104,7 +104,9 @@ const Badges = ({ classes }) => {
         {items.map(({ content, icon: Icon, title }, i) => (
           <div className={classes.badge} key={`badge${i}`}>
             <Icon className={classes.icon} />
-            <Typography variant="h4">{title}</Typography>
+            <Typography variant="h4" style={{ opacity: 0.7 }}>
+              {title}
+            </Typography>
             <Typography paragraph className={classes.text}>
               {content}
             </Typography>

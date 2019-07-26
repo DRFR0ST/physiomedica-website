@@ -51,9 +51,6 @@ const ModalPage = withRouter(({ open, history, children, handleClose }) => {
               <CloseIcon />
             </IconButton>
             <div className={classes.logo}>PHYSIOMEDICA</div>
-            <Button color="inherit" onClick={handleClose}>
-              save
-            </Button>
           </Toolbar>
         </AppBar>
         {children}

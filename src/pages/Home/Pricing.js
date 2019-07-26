@@ -1,5 +1,13 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
+import {
+  Typography,
+  Paper,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+} from '@material-ui/core'
 import { withStyles } from '@material-ui/styles'
 import contactImage from 'images/undraw_Calculator_0evy.svg'
 
@@ -15,7 +23,7 @@ const styles = theme => ({
   container: {
     textAlign: 'left',
     position: 'relative',
-    maxWidth: '820px',
+    width: '100%',
   },
   title: {
     marginBottom: '0.7rem',
@@ -33,10 +41,21 @@ const styles = theme => ({
 
     maxHeight: '520px',
   },
+  tableCard: {
+    width: '100%',
+    marginTop: theme.spacing(3),
+    overflowX: 'auto',
+  },
+  table: {
+    maxWidth: '100%',
+  },
   '@media (max-width: 768px)': {
     root: {
       flexDirection: 'column',
       margin: '20% 5%',
+    },
+    container: {
+      width: '100%',
     },
     image: {
       marginLeft: '0',
@@ -45,6 +64,19 @@ const styles = theme => ({
     },
   },
 })
+
+function createData(name, cost) {
+  return { name, cost }
+}
+
+const rows = [
+  createData('Masaż częściowy', 159),
+  createData('Masaż całościowy', 237),
+  createData('Masaż + ćw. indywidualne', 262),
+  createData('ćw. indywitualne', 305),
+  createData('Fizykoterapia', 356),
+  createData('Taping', 356),
+]
 
 const Pricing = ({ classes }) => {
   return (
@@ -56,20 +88,26 @@ const Pricing = ({ classes }) => {
         <Typography variant="h3" className={classes.title}>
           Cennik
         </Typography>
-        <Typography paragraph className={classes.paragraph}>
-          Consectetur ullamco deserunt velit do officia laboris ipsum enim.
-          Irure est pariatur minim enim deserunt Lorem voluptate tempor minim ad
-          esse cupidatat ad mollit. Enim eu nisi ex velit. Non cillum elit id
-          excepteur mollit mollit sit veniam. In Lorem deserunt sit amet dolor
-          reprehenderit dolor. Exercitation ea aute do dolore non deserunt
-          voluptate.
-        </Typography>
-        <Typography paragraph className={classes.paragraph}>
-          Do aute officia officia velit veniam. Dolor enim veniam anim sunt
-          dolore ex elit incididunt cupidatat nostrud. Minim enim labore
-          excepteur Lorem. Culpa commodo sit est dolor pariatur consequat qui
-          adipisicing cupidatat nulla incididunt reprehenderit ex culpa.
-        </Typography>
+        <Paper className={classes.tableCard}>
+          <Table className={classes.table}>
+            <TableHead>
+              <TableRow>
+                <TableCell>Usługa</TableCell>
+                <TableCell align="right">Koszt</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map(row => (
+                <TableRow key={row.name}>
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="right">{row.cost} zł</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Paper>
       </div>
     </div>
   )

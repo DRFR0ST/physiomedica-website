@@ -13,6 +13,7 @@ import {
   Face as FaceIcon,
   Help as HelpIcon,
   AttachMoney as AttachMoneyIcon,
+  LocalOffer as LocalOfferIcon,
 } from '@material-ui/icons'
 import { useLittera } from 'react-littera'
 
@@ -56,6 +57,12 @@ const Sidebar = ({ toggleDrawer, drawerOpen, classes, goTo }) => {
             <AttachMoneyIcon />
           </ListItemIcon>
           <ListItemText primary={translated.pricing} />
+        </ListItem>
+        <ListItem button onClick={() => goTo('discounts')}>
+          <ListItemIcon>
+            <LocalOfferIcon />
+          </ListItemIcon>
+          <ListItemText primary={translated.discounts} />
         </ListItem>
       </List>
       <Divider />
