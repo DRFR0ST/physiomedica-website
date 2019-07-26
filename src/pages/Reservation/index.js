@@ -10,7 +10,6 @@ import {
   useTheme,
   Button,
 } from '@material-ui/core'
-import Grid from '@material-ui/core/Grid'
 
 const styles = theme => ({
   grid: {
@@ -95,11 +94,7 @@ const Reservation = ({ classes }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const [items, setItems] = React.useState([])
   const theme = useTheme()
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
 
-  function handleDateChange(date) {
-    setSelectedDate(date);
-  }
 
   function handleChange(event) {
     setItems(event.target.value)
@@ -176,7 +171,7 @@ const Reservation = ({ classes }) => {
               ))}
             </Select>
           </FormControl>
-          
+
           <br />
           <br />
           <TextField
