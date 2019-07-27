@@ -11,7 +11,7 @@ import ModalPage from 'components/ModalPage'
 import BottomNav from '../components/BottomNav'
 import SimpleModal from '../components/SimpleModal'
 import Contact from '../pages/Contact'
-import Diplomas from '../pages/Diplomas';
+import Diplomas from '../pages/Diplomas'
 
 const TRANS_PRESET = {
   menu: {
@@ -127,12 +127,12 @@ function App({ history, location }) {
           toggleDrawer={toggleDrawer}
           drawerOpen={drawerOpen}
         />
+        <Footer />
         <BottomNav
           handleChange={e =>
             !isURLExternal(e) ? history.push(e) : (window.location.href = e)
           }
         />
-        <Footer />
       </ThemeProvider>
     </LitteraProvider>
   )

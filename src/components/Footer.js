@@ -22,11 +22,13 @@ const styles = theme => ({
     justifyContent: 'flex-end',
     alignItems: 'center',
     padding: '10px 0 0 0',
-    background: '#f4f4f4',
+    background: `linear-gradient(to top, #f1f1f1, ${
+      theme.palette.background.light
+    })`,
     color: '#5a5a5a',
     position: 'relative',
-    'box-shadow':
-      'inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24)',
+    /*'box-shadow':
+      'inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24)',*/
   },
   copyright: {
     display: 'flex',
@@ -61,6 +63,9 @@ const styles = theme => ({
     maxHeight: '13.5px',
     marginRight: '10px',
   },
+  languageContainer: {
+    alignSelf: 'flex-start',
+  },
   '@media (max-width: 768px)': {
     infoContainer: {
       flexDirection: 'column-reverse',
@@ -70,6 +75,13 @@ const styles = theme => ({
     },
     logo: {
       marginRight: 0,
+      display: 'none',
+    },
+    languageButton: {
+      alignSelf: 'center',
+    },
+    languageContainer: {
+      alignSelf: 'center',
     },
   },
   link: {
@@ -169,11 +181,12 @@ const Footer = ({ classes }) => {
             ))}
           </ul>
         </div>
-        <div style={{ alignSelf: 'flex-start' }}>
+        <div className={classes.languageContainer}>
           <div style={{ alignSelf: 'flex-start' }}>
             <Button
               aria-controls="simple-menu"
               aria-haspopup="true"
+              className={classes.languageButton}
               onClick={handleClick}>
               {enFlagEl}
               {translated.switchLang}

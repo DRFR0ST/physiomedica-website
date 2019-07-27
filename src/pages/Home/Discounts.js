@@ -2,7 +2,11 @@ import React from 'react'
 import { Typography, IconButton } from '@material-ui/core'
 import { withStyles } from '@material-ui/styles'
 import discountsImage from 'images/undraw_discount_d4bd.svg'
-import { Star as StarIcon, Face as FaceIcon, Favorite as FavoriteIcon } from '@material-ui/icons'
+import {
+  Star as StarIcon,
+  Face as FaceIcon,
+  Favorite as FavoriteIcon,
+} from '@material-ui/icons'
 
 const styles = theme => ({
   root: {
@@ -82,18 +86,18 @@ const styles = theme => ({
 
 const DISCOUNT_LIST = [
   {
-    title: 'Example',
+    title: 'Trzeci gratis',
     content:
       'In anim laborum aliqua Lorem nostrud Lorem laborum magna dolor ipsum cupidatat sint.',
     icon: StarIcon,
   },
   {
-    title: 'Example',
+    title: 'Stały klient',
     content: 'Exercitation nulla qui eu mollit cupidatat velit.',
-  icon: FavoriteIcon,
+    icon: FavoriteIcon,
   },
   {
-    title: 'Example',
+    title: 'Pierwszy taniej',
     content:
       'Enim officia veniam consectetur aute id commodo magna quis nulla.',
     icon: FaceIcon,
@@ -111,7 +115,7 @@ const Discounts = ({ classes }) => {
           Promocje
         </Typography>
         <div className={classes.content}>
-          {DISCOUNT_LIST.map(({icon: Icon, ...e}) => (
+          {DISCOUNT_LIST.map(({ icon: Icon, ...e }) => (
             <div className={classes.card}>
               <IconButton
                 size="large"

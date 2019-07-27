@@ -20,8 +20,12 @@ const useStyles = makeStyles(theme => ({
     boxShadow:
       '0px -1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)',
   },
+  gutter: { width: '100%', height: '56px' },
   '@media (min-width: 768px)': {
     root: {
+      display: 'none',
+    },
+    gutter: {
       display: 'none',
     },
   },
@@ -73,14 +77,17 @@ export default function BottomNav({ handleChange }) {
   ]
 
   return (
-    <BottomNavigation showLabels className={classes.root}>
-      {ACTIONS.map(({ text, icon: Icon, url }) => (
-        <BottomNavigationAction
-          onClick={() => handleChange(url)}
-          label={text}
-          icon={<Icon />}
-        />
-      ))}
-    </BottomNavigation>
+    <React.Fragment>
+      <div className={classes.gutter} />
+      <BottomNavigation showLabels className={classes.root}>
+        {ACTIONS.map(({ text, icon: Icon, url }) => (
+          <BottomNavigationAction
+            onClick={() => handleChange(url)}
+            label={text}
+            icon={<Icon />}
+          />
+        ))}
+      </BottomNavigation>
+    </React.Fragment>
   )
 }

@@ -2,8 +2,6 @@ import React from 'react'
 import {
   DialogTitle,
   DialogContent,
-  DialogContentText,
-  Typography,
   Divider,
 } from '@material-ui/core'
 
@@ -28,6 +26,12 @@ const styles = theme => ({
     position: 'relative',
     width: '100%',
   },
+  diploma: {
+    textAlign: 'center',
+    maxWidth: '420px',
+    margin: '0.65rem',
+  },
+  diplomaImg: { maxWidth: '100%' },
 })
 
 const createData = (name, description, image) => {
@@ -52,26 +56,14 @@ const Diplomas = ({ classes }) => {
     <React.Fragment>
       <DialogTitle id="alert-dialog-title">{'Dyplomy'}</DialogTitle>
       <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          Tutaj będą wszystkie dyplomy
-        </DialogContentText>
         <Divider />
         <div className={classes.diplomasList}>
           {diplomas.map(e => (
-            <div
-              style={{
-                textAlign: 'center',
-                maxWidth: '420px',
-                margin: '0.65rem',
-              }}>
-              <img
-                src={e.image}
-                alt={e.name}
-                style={{ maxWidth: '100%', minHeight: '329px' }}
-              />
-              <Typography variant="h4" style={{ opacity: 0.5 }}>
+            <div className={classes.diploma}>
+              <img src={e.image} alt={e.name} className={classes.diplomaImg} />
+              {/* <Typography variant="h4" style={{ opacity: 0.5 }}>
                 {e.name}
-              </Typography>
+              </Typography> */}
             </div>
           ))}
         </div>

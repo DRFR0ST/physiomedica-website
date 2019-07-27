@@ -111,7 +111,11 @@ const Pricing = ({ classes }) => {
           </Table>
         </Paper>
         <Link style={{ float: 'right', marginTop: '1rem' }} to="/reservation">
-          <Button variant="contained" color="primary" align="right">
+          <Button
+            size="large"
+            variant="contained"
+            color="primary"
+            align="right">
             Rezerwacja
           </Button>
         </Link>
