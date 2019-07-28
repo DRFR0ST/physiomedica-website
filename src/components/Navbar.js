@@ -26,6 +26,7 @@ const styles = theme => ({
     fontWeight: 500,
     cursor: 'pointer',
     userSelect: 'none',
+    textAlign: 'left',
   },
   buttons: {
     display: 'flex',

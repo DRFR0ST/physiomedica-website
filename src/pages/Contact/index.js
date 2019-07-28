@@ -47,7 +47,7 @@ const Contact = ({ classes }) => {
           width="600"
           height="450"
           title="maps"
-          style={{ border: '1px solid #eee', borderRadius: '10px' }}
+          style={{ border: '1px solid #eee', borderRadius: '10px', maxWidth: "100%" }}
           frameborder="0"
           allowfullscreen
         />

@@ -47,6 +47,7 @@ const styles = theme => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '90%',
+    flexWrap: 'wrap',
     padding: '20px 5%',
     '& p': {
       marginLeft: '20px',
@@ -68,20 +69,24 @@ const styles = theme => ({
   },
   '@media (max-width: 768px)': {
     infoContainer: {
-      flexDirection: 'column-reverse',
+      justifyContent: 'center',
+      flexDirection: 'row-reverse',
       '& p': {
         marginLeft: '0px',
       },
     },
     logo: {
       marginRight: 0,
-      display: 'none',
+      //display: 'none',
     },
     languageButton: {
       alignSelf: 'center',
     },
     languageContainer: {
       alignSelf: 'center',
+    },
+    copyright: {
+      justifyContent: 'center',
     },
   },
   link: {
