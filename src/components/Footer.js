@@ -55,6 +55,7 @@ const styles = theme => ({
   },
   logo: {
     maxHeight: '200px',
+    display: 'inline-block',
   },
   flag: {
     maxHeight: '17px',
@@ -71,12 +72,15 @@ const styles = theme => ({
     infoContainer: {
       justifyContent: 'center',
       flexDirection: 'row-reverse',
+      padding: '20px 1%',
       '& p': {
         marginLeft: '0px',
       },
     },
     logo: {
       marginRight: 0,
+      marginLeft: '10px',
+
       //display: 'none',
     },
     languageButton: {
@@ -94,6 +98,9 @@ const styles = theme => ({
     '&:hover': {
       color: '#0000006e',
     },
+  },
+  links: {
+    display: 'inline-block',
   },
 })
 
@@ -175,7 +182,7 @@ const Footer = ({ classes }) => {
     <div className={classes.root}>
       <div className={classes.infoContainer}>
         <img alt="logo" src={logo} className={classes.logo} />
-        <div style={{ marginRight: '5vw' }}>
+        <div className={classes.links}>
           <ul>
             {additionalLinks.map(e => (
               <li key={`additional-footer-link-${e.text}`}>
@@ -191,6 +198,7 @@ const Footer = ({ classes }) => {
             <Button
               aria-controls="simple-menu"
               aria-haspopup="true"
+              variant="outlined"
               className={classes.languageButton}
               onClick={handleClick}>
               {enFlagEl}

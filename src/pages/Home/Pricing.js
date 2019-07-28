@@ -10,7 +10,7 @@ import {
   Button,
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/styles'
-import contactImage from 'images/undraw_Calculator_0evy.svg'
+import contactImage from 'images/undraw_events_2p66.svg'
 import { Link } from 'react-router-dom'
 
 const styles = theme => ({
