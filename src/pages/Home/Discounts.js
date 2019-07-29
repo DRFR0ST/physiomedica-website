@@ -2,11 +2,8 @@ import React from 'react'
 import { Typography, IconButton } from '@material-ui/core'
 import { withStyles } from '@material-ui/styles'
 import discountsImage from 'images/undraw_discount_d4bd.svg'
-import {
-  Star as StarIcon,
-  Face as FaceIcon,
-  Favorite as FavoriteIcon,
-} from '@material-ui/icons'
+import { Star as StarIcon, Favorite as FavoriteIcon } from '@material-ui/icons'
+import { useLittera } from 'react-littera'
 
 const styles = theme => ({
   root: {
@@ -84,27 +81,41 @@ const styles = theme => ({
   },
 })
 
-const DISCOUNT_LIST = [
-  {
-    title: 'Trzeci gratis',
-    content:
-      'In anim laborum aliqua Lorem nostrud Lorem laborum magna dolor ipsum cupidatat sint.',
-    icon: StarIcon,
+const translations = preset => ({
+  discounts: preset.menu.discounts,
+  discount01_title: {
+    pl_PL: 'Jedenasty zabieg gratis',
+    en_US: 'Eleventh treatment free',
   },
-  {
-    title: 'Stały klient',
-    content: 'Exercitation nulla qui eu mollit cupidatat velit.',
-    icon: FavoriteIcon,
+  discount01_content: {
+    pl_PL: 'Przy zapisie na dziesięć zabiegów, jedenasty jest gratis.',
+    en_US: 'When registering for ten treatments, the eleventh is free.',
   },
-  {
-    title: 'Pierwszy taniej',
-    content:
-      'Enim officia veniam consectetur aute id commodo magna quis nulla.',
-    icon: FaceIcon,
+  discount02_title: {
+    pl_PL: 'Vouchery okazjonalne',
+    en_US: 'Occasional vouchers',
   },
-]
+  discount02_content: {
+    pl_PL: 'Imieniny, urodziny i święta są u nas pełne prezentów.',
+    en_US: 'Name days, birthdays and holidays are full of gifts with us.',
+  },
+})
 
 const Discounts = ({ classes }) => {
+  const [translated] = useLittera(translations)
+
+  const DISCOUNT_LIST = [
+    {
+      title: translated.discount01_title,
+      content: translated.discount01_content,
+      icon: StarIcon,
+    },
+    {
+      title: translated.discount02_title,
+      content: translated.discount02_content,
+      icon: FavoriteIcon,
+    },
+  ]
   return (
     <div id="discounts" className={classes.root}>
       <div>
@@ -112,7 +123,7 @@ const Discounts = ({ classes }) => {
       </div>
       <div className={classes.container}>
         <Typography variant="h3" className={classes.title}>
-          Promocje
+          {translated.discounts}
         </Typography>
         <div className={classes.content}>
           {DISCOUNT_LIST.map(({ icon: Icon, ...e }) => (

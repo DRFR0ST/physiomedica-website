@@ -1,5 +1,6 @@
 import React from 'react'
 import { DialogTitle, DialogContent, IconButton } from '@material-ui/core'
+import { useLittera } from 'react-littera'
 
 import {
   Phone as PhoneIcon,
@@ -18,16 +19,22 @@ const styles = theme => ({
   },
 })
 
+const translations = preset => ({
+  contact: preset.menu.contact,
+})
+
 const Contact = ({ classes }) => {
+  const [translated] = useLittera(translations)
+
   return (
     <React.Fragment>
-      <DialogTitle id="alert-dialog-title">{'Kontakt'}</DialogTitle>
+      <DialogTitle id="alert-dialog-title">{translated.contact}</DialogTitle>
       <DialogContent>
         <div className={classes.contactItem}>
           <IconButton>
             <PhoneIcon />
           </IconButton>{' '}
-          +48 450 010 420
+          +48 509 816 932
         </div>
         <div className={classes.contactItem}>
           <IconButton>
@@ -39,15 +46,20 @@ const Contact = ({ classes }) => {
           <IconButton>
             <PlaceIcon />
           </IconButton>{' '}
-          ul. Wolności 48Z/8, Sokołów Podlaski
+          {'Ul. Wokulskiego lok.1/4a'}
+          {'08-300 Sokołow Podlaski'}
         </div>
         <br />
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2528.8180948167465!2d17.908311215739236!3d50.667637879505904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471052fd06a78029%3A0xe65283f3eb819ae3!2sSpychalskiego+32%2C+45-716+Opole!5e0!3m2!1spl!2spl!4v1564168533805!5m2!1spl!2spl"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.9486654471634!2d22.23017051580326!3d52.407606579793004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471f6c087894e983%3A0x20dff4fff9650eb6!2sWokulskiego+1%2C+08-300+Soko%C5%82%C3%B3w+Podlaski!5e0!3m2!1sen!2spl!4v1564443303077!5m2!1sen!2spl"
           width="600"
           height="450"
           title="maps"
-          style={{ border: '1px solid #eee', borderRadius: '10px', maxWidth: "100%" }}
+          style={{
+            border: '1px solid #eee',
+            borderRadius: '10px',
+            maxWidth: '100%',
+          }}
           frameborder="0"
           allowfullscreen
         />
