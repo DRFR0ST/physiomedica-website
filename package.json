@@ -2,7 +2,7 @@
   "name": "physiomedica-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://physiomedica.eu",
+  "homepage": "https://physiomedica.eu/",
   "dependencies": {
     "@material-ui/core": "^4.1.3",
     "@material-ui/icons": "^4.2.1",
