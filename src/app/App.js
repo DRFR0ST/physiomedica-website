@@ -12,6 +12,9 @@ import BottomNav from '../components/BottomNav'
 import SimpleModal from '../components/SimpleModal'
 import Contact from '../pages/Contact'
 import Diplomas from '../pages/Diplomas'
+import News from '../pages/News'
+
+import { FacebookProvider } from 'react-facebook'
 
 const TRANS_PRESET = {
   menu: {
@@ -82,59 +85,65 @@ function App({ history, location }) {
       setModalPageOpen(true)
     else setModalPageOpen(false)
 
-    if (['/contact', '/diplomas'].indexOf(location.pathname) > -1 && !modalOpen)
+    if (
+      ['/contact', '/diplomas', '/news'].indexOf(location.pathname) > -1 &&
+      !modalOpen
+    )
       setModalOpen(true)
     else setModalOpen(false)
   }, [location]) //eslint-disable-line
 
   return (
-    <LitteraProvider
-      language={language}
-      preset={TRANS_PRESET}
-      setLanguage={setLanguage}>
-      <ThemeProvider theme={theme}>
-        <Navbar
-          toggleDrawer={toggleDrawer}
-          drawerOpen={drawerOpen}
-          goTo={goTo}
-        />
-        <Switch>
-          <Route render={() => <Home />} />
-        </Switch>
-        <ModalPage
-          open={modalPageOpen}
-          handleClose={() => {
-            setModalPageOpen(false)
-            history.push('/')
-          }}>
+    <FacebookProvider appId="525146318230804">
+      <LitteraProvider
+        language={language}
+        preset={TRANS_PRESET}
+        setLanguage={setLanguage}>
+        <ThemeProvider theme={theme}>
+          <Navbar
+            toggleDrawer={toggleDrawer}
+            drawerOpen={drawerOpen}
+            goTo={goTo}
+          />
           <Switch>
-            <Route path="/reservation" exact component={Reservation} />
+            <Route render={() => <Home />} />
           </Switch>
-        </ModalPage>
-        <SimpleModal
-          open={modalOpen}
-          handleClose={() => {
-            setModalOpen(false)
-            history.push('/')
-          }}>
-          <Switch>
-            <Route path="/contact" exact component={Contact} />
-            <Route path="/diplomas" exact component={Diplomas} />
-          </Switch>
-        </SimpleModal>
-        <Sidebar
-          goTo={goTo}
-          toggleDrawer={toggleDrawer}
-          drawerOpen={drawerOpen}
-        />
-        <Footer />
-        <BottomNav
-          handleChange={e =>
-            !isURLExternal(e) ? history.push(e) : (window.location.href = e)
-          }
-        />
-      </ThemeProvider>
-    </LitteraProvider>
+          <ModalPage
+            open={modalPageOpen}
+            handleClose={() => {
+              setModalPageOpen(false)
+              history.push('/')
+            }}>
+            <Switch>
+              <Route path="/reservation" exact component={Reservation} />
+            </Switch>
+          </ModalPage>
+          <SimpleModal
+            open={modalOpen}
+            handleClose={() => {
+              setModalOpen(false)
+              history.push('/')
+            }}>
+            <Switch>
+              <Route path="/contact" exact component={Contact} />
+              <Route path="/news" exact component={News} />
+              <Route path="/diplomas" exact component={Diplomas} />
+            </Switch>
+          </SimpleModal>
+          <Sidebar
+            goTo={goTo}
+            toggleDrawer={toggleDrawer}
+            drawerOpen={drawerOpen}
+          />
+          <Footer />
+          <BottomNav
+            handleChange={e =>
+              !isURLExternal(e) ? history.push(e) : (window.location.href = e)
+            }
+          />
+        </ThemeProvider>
+      </LitteraProvider>
+    </FacebookProvider>
   )
 }
 

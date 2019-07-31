@@ -131,7 +131,7 @@ const QuickActions = ({ classes }) => {
     {
       text: translated.news,
       icon: NewReleasesIcon,
-      url: 'https://facebook.com/physiomedicaJ.K',
+      url: '/news',
     },
     {
       text: translated.diplomas,

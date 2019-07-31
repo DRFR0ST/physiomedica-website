@@ -6,6 +6,7 @@ import {
   FlashOn as FlashOnIcon,
   Favorite as FavoriteIcon,
 } from '@material-ui/icons'
+import { useLittera } from 'react-littera'
 
 const styles = theme => ({
   root: {
@@ -77,24 +78,50 @@ const styles = theme => ({
   },
 })
 
+const translations = preset => ({
+  professional: {
+    pl_PL: 'Profesjonalizm',
+    en_US: 'Professional',
+  },
+  professionalDescription: {
+    pl_PL:
+      'Ipsum ex ipsum officia reprehenderit sunt exercitation reprehenderit mollit ad.',
+  },
+  successful: {
+    pl_PL: 'Skuteczność',
+    en_US: 'Effectiveness',
+  },
+  successfulDescription: {
+    pl_PL: 'Eiusmod nostrud eu aliquip veniam officia ad in non qui elit.',
+  },
+  individual: {
+    pl_PL: 'Indywidualne podejście',
+    en_US: 'Individual approach',
+  },
+  individualDescription: {
+    pl_PL:
+      'Irure commodo consectetur mollit ipsum consequat ad magna amet nulla ex consectetur ipsum sit.',
+  },
+})
+
 const Badges = ({ classes }) => {
+  const [translated] = useLittera(translations)
+
   const items = [
     {
-      title: 'Profesjonalizm',
+      title: translated.professional,
       icon: SpaIcon,
-      content:
-        'Ipsum ex ipsum officia reprehenderit sunt exercitation reprehenderit mollit ad.',
+      content: translated.professionalDescription,
     },
     {
-      title: 'Skuteczność',
+      title: translated.successful,
       icon: FlashOnIcon,
-      content: 'Eiusmod nostrud eu aliquip veniam officia ad in non qui elit.',
+      content: translated.successfulDescription,
     },
     {
-      title: 'Indywidualne podjeście',
+      title: translated.individual,
       icon: FavoriteIcon,
-      content:
-        'Irure commodo consectetur mollit ipsum consequat ad magna amet nulla ex consectetur ipsum sit.',
+      content: translated.individualDescription,
     },
   ]
 

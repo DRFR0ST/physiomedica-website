@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import useEventListener from '@use-it/event-listener'
 import { withStyles, Paper, Button, IconButton } from '@material-ui/core'
 import { useLittera } from 'react-littera'
-import { Link } from 'react-router-dom'
 import { Menu as MenuIcon } from '@material-ui/icons'
 
 const styles = theme => ({
@@ -78,14 +77,12 @@ const Navbar = ({ classes, toggleDrawer, goTo }) => {
       </div>
       <div className={classes.logo}>PHYSIOMEDICA</div>
       <div className={classes.buttons}>
-        <Link to="/">
-          <Button
-            size="small"
-            style={{ margin: '0 4px' }}
-            onClick={() => goTo('')}>
-            {translated.home}
-          </Button>
-        </Link>
+        <Button
+          size="small"
+          style={{ margin: '0 4px' }}
+          onClick={() => goTo('')}>
+          {translated.home}
+        </Button>
         <Button
           size="small"
           style={{ margin: '0 4px' }}
