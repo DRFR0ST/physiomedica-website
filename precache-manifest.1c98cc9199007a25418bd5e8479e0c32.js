@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7ddf784b9e46c40c2abec1520c172461",
+    "revision": "1b67271aaae2bc15bb5b639c82df41a5",
     "url": "/index.html"
   },
   {
-    "revision": "699d929ce9ceded62dbb",
+    "revision": "f2d4e91eff80cb30f2af",
     "url": "/static/css/main.6bc48eca.chunk.css"
   },
   {
-    "revision": "4848bda6cdbb8f326527",
-    "url": "/static/js/2.5f9f7486.chunk.js"
+    "revision": "84468da273334f5e91cb",
+    "url": "/static/js/2.167c9b5b.chunk.js"
   },
   {
-    "revision": "699d929ce9ceded62dbb",
-    "url": "/static/js/main.0b879730.chunk.js"
+    "revision": "f2d4e91eff80cb30f2af",
+    "url": "/static/js/main.39b59b4e.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -38,6 +38,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "78e82ec53a394285c2a8902ab61905c7",
     "url": "/static/media/undraw_Stability_ball_b4ia.78e82ec5.svg"
+  },
+  {
+    "revision": "7c3d39783d9bd1734d1b8add6007dda8",
+    "url": "/static/media/undraw_confirmation_2uy0.7c3d3978.svg"
   },
   {
     "revision": "ef3505c1d8723402be90545e77e8168e",
