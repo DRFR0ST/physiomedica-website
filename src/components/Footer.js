@@ -10,7 +10,6 @@ import { useLittera } from 'react-littera'
 import logo from 'images/logo_transparent.png'
 import usFlag from 'images/flags/US.svg'
 import plFlag from 'images/flags/PL.svg'
-import { Link } from 'react-router-dom'
 
 const styles = theme => ({
   root: {
@@ -66,7 +65,7 @@ const styles = theme => ({
     marginRight: '10px',
   },
   languageContainer: {
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
   },
   '@media (max-width: 768px)': {
     infoContainer: {
@@ -139,6 +138,7 @@ const Footer = ({ classes }) => {
   const [translated, language, setLanguage] = useLittera(translations)
   const [anchorEl, setAnchorEl] = useState(null)
 
+  /* eslint-disable */
   const additionalLinks = [
     {
       text: translated.privacyPolicy,
@@ -157,6 +157,7 @@ const Footer = ({ classes }) => {
       url: '/help',
     },
   ]
+  /* eslint-enable */
 
   function handleClick(event) {
     setAnchorEl(event.currentTarget)
@@ -182,7 +183,7 @@ const Footer = ({ classes }) => {
     <div className={classes.root}>
       <div className={classes.infoContainer}>
         <img alt="logo" src={logo} className={classes.logo} />
-        <div className={classes.links}>
+        {/* <div className={classes.links}>
           <ul>
             {additionalLinks.map(e => (
               <li key={`additional-footer-link-${e.text}`}>
@@ -192,7 +193,7 @@ const Footer = ({ classes }) => {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
         <div className={classes.languageContainer}>
           <div style={{ alignSelf: 'flex-start' }}>
             <Button

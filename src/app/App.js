@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import { Route, withRouter, Switch } from 'react-router-dom'
@@ -70,15 +70,23 @@ function App({ history, location }) {
   const [modalOpen, setModalOpen] = useState(false)
   const [language, setLanguage] = useState('pl_PL')
 
-  const goTo = content => {
+  const goTo = useCallback((content, delay = false) => {
     //window.location.href = `#`
     //window.location.href = `#${content}`
-    if (content)
-      document.getElementById(content).scrollIntoView({ block: 'center' })
-    else window.scrollTo(0, 0)
+    if (delay) {
+      setTimeout(() => {
+        if (content)
+          document.getElementById(content).scrollIntoView({ block: 'center' })
+        else window.scrollTo(0, 0)
+      }, 500)
+    } else {
+      if (content)
+        document.getElementById(content).scrollIntoView({ block: 'center' })
+      else window.scrollTo(0, 0)
+    }
     //window.scrollTo(0, window.pageYOffset - 64)
     //history.push();
-  }
+  }, [])
 
   useEffect(() => {
     if (['/reservation'].indexOf(location.pathname) > -1 && !modalPageOpen)

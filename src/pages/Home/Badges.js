@@ -83,25 +83,17 @@ const translations = preset => ({
     pl_PL: 'Profesjonalizm',
     en_US: 'Professional',
   },
-  professionalDescription: {
-    pl_PL:
-      'Ipsum ex ipsum officia reprehenderit sunt exercitation reprehenderit mollit ad.',
-  },
+  professionalDescription: {},
   successful: {
     pl_PL: 'Skuteczność',
     en_US: 'Effectiveness',
   },
-  successfulDescription: {
-    pl_PL: 'Eiusmod nostrud eu aliquip veniam officia ad in non qui elit.',
-  },
+  successfulDescription: {},
   individual: {
     pl_PL: 'Indywidualne podejście',
     en_US: 'Individual approach',
   },
-  individualDescription: {
-    pl_PL:
-      'Irure commodo consectetur mollit ipsum consequat ad magna amet nulla ex consectetur ipsum sit.',
-  },
+  individualDescription: {},
 })
 
 const Badges = ({ classes }) => {

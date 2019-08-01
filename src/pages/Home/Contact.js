@@ -141,7 +141,7 @@ const translations = preset => ({
 })
 
 const Contact = ({ classes }) => {
-  const [translated] = useLittera(translations)
+  const [translated, language] = useLittera(translations)
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [inputName, setInputName] = useState('')
   const [inputSender, setInputSender] = useState('')
@@ -260,6 +260,7 @@ const Contact = ({ classes }) => {
                     onChange={handleReCaptcha}
                     onExpired={() => setWarning(translated.recaptchaExpired)}
                     onErrored={() => setWarning(translated.recaptchaError)}
+                    hl={language.split('-')[0]}
                   />
                   <br />
                   <Button

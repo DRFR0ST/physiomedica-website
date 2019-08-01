@@ -5,13 +5,11 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Divider,
   withStyles,
 } from '@material-ui/core'
 import {
   Home as HomeIcon,
   Face as FaceIcon,
-  Help as HelpIcon,
   AttachMoney as AttachMoneyIcon,
   LocalOffer as LocalOfferIcon,
 } from '@material-ui/icons'
@@ -40,38 +38,49 @@ const Sidebar = ({ toggleDrawer, drawerOpen, classes, goTo }) => {
       onClick={() => toggleDrawer(false)}
       onKeyDown={() => toggleDrawer(false)}>
       <List>
-        <ListItem button onClick={() => goTo('')}>
+        <ListItem
+          button
+          onClick={() => {
+            toggleDrawer(false)
+            goTo('', true)
+          }}>
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
           <ListItemText primary={translated.home} />
         </ListItem>
-        <ListItem button onClick={() => goTo('about')}>
+        <ListItem
+          button
+          onClick={() => {
+            toggleDrawer(false)
+            goTo('about', true)
+          }}>
           <ListItemIcon>
             <FaceIcon />
           </ListItemIcon>
           <ListItemText primary={translated.about} />
         </ListItem>
-        <ListItem button onClick={() => goTo('pricing')}>
+        <ListItem
+          button
+          onClick={() => {
+            toggleDrawer(false)
+            goTo('pricing', true)
+          }}>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
           <ListItemText primary={translated.pricing} />
         </ListItem>
-        <ListItem button onClick={() => goTo('discounts')}>
+        <ListItem
+          button
+          onClick={() => {
+            toggleDrawer(false)
+            goTo('discounts', true)
+          }}>
           <ListItemIcon>
             <LocalOfferIcon />
           </ListItemIcon>
           <ListItemText primary={translated.discounts} />
-        </ListItem>
-      </List>
-      <Divider />
-      <List>
-        <ListItem button>
-          <ListItemIcon>
-            <HelpIcon />
-          </ListItemIcon>
-          <ListItemText primary={translated.help} />
         </ListItem>
       </List>
     </div>

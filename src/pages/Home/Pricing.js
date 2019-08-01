@@ -117,8 +117,8 @@ const Pricing = ({ classes }) => {
   const [translated] = useLittera(translations)
 
   const rows = [
-    createData(translated.service01, 70, 60),
-    createData(translated.service02, 50, 30),
+    createData(translated.service02, 70, 30),
+    createData(translated.service01, 50, 60),
     createData(translated.service03, 70, 45),
     createData(translated.service04, 60, 50),
     createData(translated.service05, 15, 10),
