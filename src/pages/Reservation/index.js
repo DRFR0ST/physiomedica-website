@@ -17,6 +17,8 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import successImage from 'images/undraw_confirmation_2uy0.svg'
 import { green } from '@material-ui/core/colors'
 
+import usePrices from "utils/usePrices";
+
 const styles = theme => ({
   grid: {
     width: '60%',
@@ -169,14 +171,7 @@ function reducer(state, action) {
 
 const Reservation = ({ classes }) => {
   const [translated, language] = useLittera(translations)
-  const names = [
-    { name: translated.service02, price: 70, time: 30 },
-    { name: translated.service01, price: 50, time: 60 },
-    { name: translated.service03, price: 70, time: 45 },
-    { name: translated.service04, price: 60, time: 50 },
-    { name: translated.service05, price: 15, time: 10 },
-    { name: translated.service06, price: 30, time: 30 },
-  ]
+  const names = usePrices();
   const [state, dispatch] = useReducer(reducer, initialState)
   const [items, setItems] = React.useState([])
   const theme = useTheme()
@@ -204,10 +199,9 @@ const Reservation = ({ classes }) => {
   }, [items.length, state.email, state.name, verified])
   /* eslint-enable */
 
-  const handleReCaptcha = v => {
-    console.log('Recaptcha', v)
+  const handleReCaptcha = v => 
     setVerified(true)
-  }
+  
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -230,7 +224,7 @@ const Reservation = ({ classes }) => {
       state.name,
       state.email,
       items
-        .map(e => `${e} (${names.find(x => e === x.name).price} zł)`)
+        .map(e => `${e} (${names.find(x => e === x.name).cost} zł)`)
         .join(', '),
       `${totalCost} zł`,
       `${totalTime} min`,
@@ -280,7 +274,7 @@ const Reservation = ({ classes }) => {
             {state.email}
           </Typography>
           <br />
-          <img style={{ maxWidth: '675px' }} src={successImage} alt="contact" />
+          <img style={{ maxWidth: '675px', width: "100%" }} src={successImage} alt="contact" />
         </div>
       )}
       {!formSubmitted && (

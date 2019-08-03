@@ -148,6 +148,7 @@ const Contact = ({ classes }) => {
   const [inputMessage, setInputMessage] = useState('')
   const [verified, setVerified] = useState(false)
   const [warning, setWarning] = useState(false)
+  const [disabled, setDisabled] = useState(true)
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -265,6 +266,7 @@ const Contact = ({ classes }) => {
                   <br />
                   <Button
                     size="large"
+                    disabled={disabled}
                     type="submit"
                     variant="outlined"
                     className={classes.submit}>
