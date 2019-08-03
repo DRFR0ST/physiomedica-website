@@ -359,7 +359,7 @@ const Reservation = ({ classes }) => {
                 {`${translated.totalCost}: `}
                 <b>
                   {items
-                    .map(e => names.find(x => x.name === e).price)
+                    .map(e => names.find(x => x.name === e).cost)
                     .reduce((a, b) => a + b, 0)}{' '}
                   zł
                 </b>
