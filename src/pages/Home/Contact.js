@@ -168,6 +168,12 @@ const Contact = ({ classes }) => {
     //setFormSubmitted(true)
   }
 
+  React.useEffect(() => {
+    setDisabled(
+      Boolean(inputName && inputSender && inputMessage && verified) === false
+    )
+  }, [inputName, inputSender, inputMessage, verified]) // eslint-disable-line
+
   const sendFeedback = (
     templateId,
     senderEmail,
@@ -190,7 +196,6 @@ const Contact = ({ classes }) => {
   }
 
   const handleReCaptcha = v => {
-    console.log('Recaptcha', v)
     setVerified(true)
   }
 
