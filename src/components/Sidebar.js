@@ -12,6 +12,7 @@ import {
   Face as FaceIcon,
   AttachMoney as AttachMoneyIcon,
   LocalOffer as LocalOfferIcon,
+  LinearScale as LinearScaleIcon,
 } from '@material-ui/icons'
 import { useLittera } from 'react-littera'
 
@@ -59,6 +60,17 @@ const Sidebar = ({ toggleDrawer, drawerOpen, classes, goTo }) => {
             <FaceIcon />
           </ListItemIcon>
           <ListItemText primary={translated.about} />
+        </ListItem>
+        <ListItem
+          button
+          onClick={() => {
+            toggleDrawer(false)
+            goTo('diseases', true)
+          }}>
+          <ListItemIcon>
+            <LinearScaleIcon />
+          </ListItemIcon>
+          <ListItemText primary={translated.diseases} />
         </ListItem>
         <ListItem
           button

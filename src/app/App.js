@@ -42,6 +42,10 @@ const TRANS_PRESET = {
       en_US: 'Discounts',
       pl_PL: 'Promocje',
     },
+    diseases: {
+      en_US: 'Disorders',
+      pl_PL: 'Schorzenia',
+    },
   },
 }
 

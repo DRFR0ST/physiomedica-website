@@ -7,6 +7,7 @@ import Badges from './Badges'
 import Pricing from './Pricing'
 import Discounts from './Discounts'
 import FunQuote from './FunQuote'
+import Diseases from './Diseases'
 
 const styles = theme => ({
   root: {
@@ -20,6 +21,7 @@ const Home = ({ classes }) => {
       <Intro />
       <Badges />
       <About />
+      <Diseases />
       <Pricing />
       <FunQuote />
       <Discounts />
