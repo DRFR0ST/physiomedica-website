@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, Typography } from '@material-ui/core'
+import { makeStyles, Typography, Divider } from '@material-ui/core'
 import { useLittera } from 'react-littera'
 
 const useStyles = makeStyles(theme => ({
@@ -74,6 +74,7 @@ const Diseases = () => {
         <Typography paragraph style={{ opacity: 0.5 }}>
           {translated.slogan}
         </Typography>
+        <br/>
         <div className={classes.items}>
           {[...items, ...items, ...items, ...items].map((e, i) => (
             <div key={`disease_item_${i}`} className={classes.item}>
