@@ -38,11 +38,11 @@ const usePrices = () => {
 
   return [
     createData(translated.service01, 70, 60),
-    createData(translated.service02, 50, 50),
-    createData(translated.service03, 70, 70),
-    createData(translated.service04, 40, 40),
-    createData(translated.service05, 60, 60),
-    createData(translated.service06, 15, 10),
+    createData(translated.service02, 50, 30),
+    createData(translated.service03, 70, 45),
+    createData(translated.service04, 40, 15),
+    createData(translated.service05, 60, 40),
+    createData(translated.service06, 15, 15),
     createData(translated.service07, 30, 0),
   ]
 }
