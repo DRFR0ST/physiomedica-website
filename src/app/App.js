@@ -15,6 +15,7 @@ import Diplomas from '../pages/Diplomas'
 import News from '../pages/News'
 
 import { FacebookProvider } from 'react-facebook'
+import Gallery from '../pages/Gallery'
 
 const TRANS_PRESET = {
   menu: {
@@ -45,6 +46,10 @@ const TRANS_PRESET = {
     diseases: {
       en_US: 'Disorders',
       pl_PL: 'Schorzenia',
+    },
+    gallery: {
+      en_US: 'Gallery',
+      pl_PL: 'Galeria',
     },
   },
 }
@@ -93,7 +98,10 @@ function App({ history, location }) {
   }, [])
 
   useEffect(() => {
-    if (['/reservation'].indexOf(location.pathname) > -1 && !modalPageOpen)
+    if (
+      ['/reservation', '/gallery'].indexOf(location.pathname) > -1 &&
+      !modalPageOpen
+    )
       setModalPageOpen(true)
     else setModalPageOpen(false)
 
@@ -128,6 +136,7 @@ function App({ history, location }) {
             }}>
             <Switch>
               <Route path="/reservation" exact component={Reservation} />
+              <Route path="/gallery" exact component={Gallery} />
             </Switch>
           </ModalPage>
           <SimpleModal

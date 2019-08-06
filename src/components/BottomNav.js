@@ -7,6 +7,7 @@ import {
   Grade as GradeIcon,
   NewReleases as NewReleasesIcon,
   School as SchoolIcon,
+  Photo as PhotoIcon,
 } from '@material-ui/icons'
 import { useLittera } from 'react-littera'
 
@@ -30,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }))
-const translations = {
+const translations = preset => ({
   reservation: {
     en_US: 'Reservation',
     pl_PL: 'Rezerwacja',
@@ -47,7 +48,9 @@ const translations = {
     en_US: 'Diplomas',
     pl_PL: 'Dyplomy',
   },
-}
+  gallery: preset.menu.gallery,
+})
+
 export default function BottomNav({ handleChange }) {
   const classes = useStyles()
 
