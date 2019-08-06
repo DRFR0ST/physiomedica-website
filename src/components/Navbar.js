@@ -92,6 +92,12 @@ const Navbar = ({ classes, toggleDrawer, goTo }) => {
         <Button
           size="small"
           style={{ margin: '0 4px' }}
+          onClick={() => goTo('diseases')}>
+          {translated.diseases}
+        </Button>
+        <Button
+          size="small"
+          style={{ margin: '0 4px' }}
           onClick={() => goTo('pricing')}>
           {translated.pricing}
         </Button>

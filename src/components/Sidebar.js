@@ -6,14 +6,18 @@ import {
   ListItemIcon,
   ListItemText,
   withStyles,
+  Divider,
 } from '@material-ui/core'
 import {
   Home as HomeIcon,
   Face as FaceIcon,
   AttachMoney as AttachMoneyIcon,
   LocalOffer as LocalOfferIcon,
+  LinearScale as LinearScaleIcon,
+  Photo as PhotoIcon,
 } from '@material-ui/icons'
 import { useLittera } from 'react-littera'
+import { withRouter } from 'react-router-dom'
 
 const styles = theme => ({
   fullList: {
@@ -29,7 +33,7 @@ const translations = preset => ({
   },
 })
 
-const Sidebar = ({ toggleDrawer, drawerOpen, classes, goTo }) => {
+const Sidebar = ({ toggleDrawer, drawerOpen, classes, goTo, history }) => {
   const [translated] = useLittera(translations)
 
   const fullList = (
@@ -64,6 +68,17 @@ const Sidebar = ({ toggleDrawer, drawerOpen, classes, goTo }) => {
           button
           onClick={() => {
             toggleDrawer(false)
+            goTo('diseases', true)
+          }}>
+          <ListItemIcon>
+            <LinearScaleIcon />
+          </ListItemIcon>
+          <ListItemText primary={translated.diseases} />
+        </ListItem>
+        <ListItem
+          button
+          onClick={() => {
+            toggleDrawer(false)
             goTo('pricing', true)
           }}>
           <ListItemIcon>
@@ -82,6 +97,18 @@ const Sidebar = ({ toggleDrawer, drawerOpen, classes, goTo }) => {
           </ListItemIcon>
           <ListItemText primary={translated.discounts} />
         </ListItem>
+        <Divider />
+        <ListItem
+          button
+          onClick={() => {
+            toggleDrawer(false)
+            history.push('/gallery')
+          }}>
+          <ListItemIcon>
+            <PhotoIcon />
+          </ListItemIcon>
+          <ListItemText primary={translated.gallery} />
+        </ListItem>
       </List>
     </div>
   )
@@ -97,4 +124,4 @@ const Sidebar = ({ toggleDrawer, drawerOpen, classes, goTo }) => {
   )
 }
 
-export default withStyles(styles)(Sidebar)
+export default withStyles(styles)(withRouter(Sidebar))

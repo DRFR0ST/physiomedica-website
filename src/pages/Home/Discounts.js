@@ -129,7 +129,7 @@ const Discounts = ({ classes }) => {
           {DISCOUNT_LIST.map(({ icon: Icon, ...e }) => (
             <div className={classes.card}>
               <IconButton
-                size="large"
+                size="medium"
                 color="primary"
                 className={classes.starButton}>
                 <Icon />

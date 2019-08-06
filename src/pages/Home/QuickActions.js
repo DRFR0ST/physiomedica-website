@@ -6,6 +6,7 @@ import {
   Grade as GradeIcon,
   NewReleases as NewReleasesIcon,
   School as SchoolIcon,
+  Photo as PhotoIcon,
 } from '@material-ui/icons'
 import { Typography, ButtonBase } from '@material-ui/core'
 
@@ -95,15 +96,9 @@ const states = theme => ({
   },
 })
 
-const translations = {
-  reservation: {
-    en_US: 'Reservation',
-    pl_PL: 'Rezerwacja',
-  },
-  contact: {
-    en_US: 'Contact',
-    pl_PL: 'Kontakt',
-  },
+const translations = preset => ({
+  reservation: preset.menu.reservation,
+  contact: preset.menu.contact,
   news: {
     en_US: 'News',
     pl_PL: 'Nowości',
@@ -112,7 +107,8 @@ const translations = {
     en_US: 'Diplomas',
     pl_PL: 'Dyplomy',
   },
-}
+  gallery: preset.menu.gallery,
+})
 
 const QuickActions = ({ classes }) => {
   const [translated] = useLittera(translations)
@@ -137,6 +133,11 @@ const QuickActions = ({ classes }) => {
       text: translated.diplomas,
       icon: SchoolIcon,
       url: '/diplomas',
+    },
+    {
+      text: translated.gallery,
+      icon: PhotoIcon,
+      url: '/gallery',
     },
   ]
 
