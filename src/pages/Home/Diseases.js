@@ -9,7 +9,6 @@ import {
 } from '@material-ui/core'
 import { useLittera } from 'react-littera'
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons'
-import illustration from 'images/undraw_Choose_bwbs.svg'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -48,6 +47,7 @@ const useStyles = makeStyles(theme => ({
   lower: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: "center",
     width: '100%',
     position: 'relative',
   },
@@ -80,8 +80,8 @@ const useStyles = makeStyles(theme => ({
 const translations = preset => ({
   diseases: preset.menu.diseases,
   slogan: {
-    pl_PL: 'Schorzenia leczone w naszym gabinecie',
-    en_US: 'Disorders treated in our office',
+    pl_PL: 'Schorzenia leczone w moim gabinecie',
+    en_US: 'Disorders treated in my office',
   },
 })
 
@@ -246,9 +246,9 @@ const Diseases = () => {
               </ExpansionPanel>
             ))}
           </div>
-          <div className={classes.illustration}>
+          {/* <div className={classes.illustration}>
             <img src={illustration} alt="illustration diseases" />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

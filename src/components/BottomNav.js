@@ -7,7 +7,6 @@ import {
   Grade as GradeIcon,
   NewReleases as NewReleasesIcon,
   School as SchoolIcon,
-  Photo as PhotoIcon,
 } from '@material-ui/icons'
 import { useLittera } from 'react-littera'
 
