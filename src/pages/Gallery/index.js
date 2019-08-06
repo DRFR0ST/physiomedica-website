@@ -1,12 +1,12 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 
-import image01 from 'images/gallery/IMG_20190806_171911.jpg'
-import image02 from 'images/gallery/IMG_20190806_171918.jpg'
-import image03 from 'images/gallery/IMG_20190806_171941.jpg'
-import image04 from 'images/gallery/IMG_20190806_171950_1.jpg'
-import image05 from 'images/gallery/IMG_20190806_172115.jpg'
-import image06 from 'images/gallery/IMG_20190806_173140.jpg'
+import image01 from 'images/gallery/IMG_20190806_171911-min.jpg'
+import image02 from 'images/gallery/IMG_20190806_171918-min.jpg'
+import image03 from 'images/gallery/IMG_20190806_171941-min.jpg'
+import image04 from 'images/gallery/IMG_20190806_171950_1-min.jpg'
+import image05 from 'images/gallery/IMG_20190806_172115-min.jpg'
+import image06 from 'images/gallery/IMG_20190806_173140-min.jpg'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -44,35 +44,35 @@ const tileData = [
     title: 'Gabinet 01',
     cols: 2,
     rows: 2,
-    rotate: true,
+    rotate: false,
   },
   {
     img: image02,
     title: 'Gabinet 02',
     cols: 1,
     rows: 2,
-    rotate: true,
+    rotate: false,
   },
   {
     img: image03,
     title: 'Gabinet 03',
     cols: 1,
     rows: 2,
-    rotate: true,
+    rotate: false,
   },
   {
     img: image05,
     title: 'Gabinet 05',
     cols: 1,
     rows: 2,
-    rotate: true,
+    rotate: false,
   },
   {
     img: image06,
     title: 'Gabinet 06',
     cols: 1,
     rows: 2,
-    rotate: true,
+    rotate: false,
   },
   {
     img: image04,
