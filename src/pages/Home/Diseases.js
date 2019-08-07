@@ -116,12 +116,12 @@ const Diseases = () => {
           {
             title: 'Fizjoterapia Uroginekologiczna',
             elements: [
-              'wysilkowe nietrzymanie moczu',
-              'pęcherz nadreaktywna',
+              'wysiłkowe nietrzymanie moczu',
+              'pęcherz nadreaktywny',
               'obniżenie narządów miednicy mniejszej',
               'wypadanie narządów miednicy mniejszej',
               'bolesne miesiączkowanie',
-              'rozejscie "kresy białej"',
+              'rozejście "kresy białej"',
               'profilaktyka i edukacja',
             ],
           },
