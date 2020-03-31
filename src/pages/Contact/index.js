@@ -46,12 +46,12 @@ const Contact = ({ classes }) => {
           <IconButton>
             <PlaceIcon />
           </IconButton>{' '}
-          {'Ul. Wokulskiego lok.1/4a'}
+          {'Ul. Wolności 12, budynek NZOZ Max-Med'}
           {'08-300 Sokołow Podlaski'}
         </div>
         <br />
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.9486654471634!2d22.23017051580326!3d52.407606579793004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471f6c087894e983%3A0x20dff4fff9650eb6!2sWokulskiego+1%2C+08-300+Soko%C5%82%C3%B3w+Podlaski!5e0!3m2!1sen!2spl!4v1564443303077!5m2!1sen!2spl"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.9667966018337!2d22.245498315803268!3d52.40727797979299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471f6c01f7ab8823%3A0x408ec9c833a24c11!2zV29sbm_Fm2NpIDEyLCAwOC0zMDAgU29rb8WCw7N3IFBvZGxhc2tp!5e0!3m2!1sen!2spl!4v1585680360955!5m2!1sen!2spl"
           width="600"
           height="450"
           title="maps"
