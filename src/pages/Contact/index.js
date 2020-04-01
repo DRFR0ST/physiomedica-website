@@ -47,6 +47,7 @@ const Contact = ({ classes }) => {
             <PlaceIcon />
           </IconButton>{' '}
           {'Ul. Wolności 12, budynek NZOZ Max-Med'}
+          <br />
           {'08-300 Sokołow Podlaski'}
         </div>
         <br />
