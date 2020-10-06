@@ -349,7 +349,7 @@ const Reservation = ({ classes }) => {
                     <p>
                       {e.name}
                       {' - '}
-                      {e.price} zł
+                      {e.cost} zł
                     </p>
                   </MenuItem>
                 ))}
